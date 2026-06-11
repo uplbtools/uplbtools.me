@@ -1,0 +1,155 @@
+---
+---
+<footer class="main-footer">
+  <div class="container footer-container">
+    <div class="footer-brand-side">
+      <a href="#" class="logo">
+        <span class="logo-accent-red">uplb</span><span class="logo-dot">.</span><span class="logo-accent-green">tools</span>
+      </a>
+      <p class="brand-pitch">
+        Building modern, open-source utilities to empower the student community at the University of the Philippines Los Baños.
+      </p>
+    </div>
+    
+    <div class="footer-links-side">
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#community">Community</a>
+      </div>
+      
+      <div class="footer-socials">
+        <h4>Resources</h4>
+        <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub Organization</a>
+        <a href="https://github.com/smmariquit/uplbtools.me" target="_blank" rel="noopener noreferrer">Website Source</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container footer-bottom">
+    <div class="disclaimer">
+      <p>Disclaimer: uplb.tools is an independent student-led open-source project. We are not officially affiliated with or endorsed by the University of the Philippines Los Baños (UPLB) administration.</p>
+    </div>
+    <div class="copyright">
+      <p>&copy; {new Date().getFullYear()} uplb.tools. Built with ❤️ by Elbi Student Developers.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .main-footer {
+    border-top: 1px solid var(--border-color);
+    background: #05070e;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+  
+  .footer-brand-side {
+    max-width: 380px;
+  }
+  
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .logo-accent-red {
+    background: linear-gradient(135deg, #ff4e72, var(--color-maroon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .logo-dot {
+    color: var(--text-primary);
+  }
+  
+  .logo-accent-green {
+    background: linear-gradient(135deg, #34d399, var(--color-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .brand-pitch {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  
+  .footer-links-side {
+    display: flex;
+    gap: 6rem;
+  }
+  
+  .footer-nav, .footer-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .footer-nav h4, .footer-socials h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+  }
+  
+  .footer-nav a, .footer-socials a {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  
+  .footer-nav a:hover, .footer-socials a:hover {
+    color: var(--text-primary);
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .disclaimer {
+    max-width: 800px;
+  }
+  
+  .disclaimer p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  
+  .copyright p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    
+    .footer-links-side {
+      gap: 4rem;
+    }
+  }
+</style>
