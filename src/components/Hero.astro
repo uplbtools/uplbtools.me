@@ -4,24 +4,20 @@
   <div class="container hero-container">
     <div class="hero-content">
       <div class="hero-badge-container">
-        <span class="badge badge-maroon">Active Initiative</span>
-        <span class="badge badge-green">100% Student-Driven</span>
+        <span class="badge badge-maroon">Student Organization</span>
+        <span class="badge badge-green">Open Source</span>
       </div>
       <h1 class="hero-title">
-        The Open Source <br/>
-        Workbench for <span class="gradient-text-maroon">UP Los Baños</span>
+        Building useful utilities <br/>
+        for <span class="accent-maroon">UP Los Baños</span>
       </h1>
       <p class="hero-subtitle">
-        We build useful, privacy-first, community-driven utilities to make student life at Elbi easier, while serving as a collaborative training ground for developers, designers, and creative minds.
+        We are an independent, open-source initiative creating custom, privacy-first software to streamline student workflows at UPLB. We also provide a collaborative training sandbox for student developers, designers, and creatives.
       </p>
       
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">
-          <span>Explore Our Tools</span>
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+          <span>Explore Tools</span>
         </a>
         <a href="#community" class="btn btn-secondary">
           <span>Join the Initiative</span>
@@ -30,36 +26,15 @@
     </div>
     
     <div class="hero-visual">
-      <!-- Premium mockup layout displaying floating elements of Room TBA & GradeSim -->
       <div class="visual-wrapper">
-        <div class="visual-bg-glow"></div>
-        <div class="mockup-frame main-frame">
+        <div class="mockup-frame">
           <div class="frame-header">
             <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="address-bar">uplbtools.me</div>
+            <div class="address-bar">github.com/uplbtools</div>
           </div>
           <div class="frame-body">
-            <div class="preview-placeholder">
-              <img src="/github-org-screenshot.png" alt="uplbtools GitHub Organization Mockup" class="mockup-img" />
-              <div class="mockup-overlay"></div>
-            </div>
+            <img src="/github-org-screenshot.png" alt="uplbtools GitHub Organization" class="mockup-img" />
           </div>
-        </div>
-        
-        <div class="floating-card float-1 card">
-          <div class="float-card-header">
-            <span class="pulse-dot"></span>
-            <h4>Room TBA</h4>
-          </div>
-          <p>3D Campus Finder</p>
-        </div>
-
-        <div class="floating-card float-2 card">
-          <div class="float-card-header">
-            <span class="pulse-dot green"></span>
-            <h4>GradeSim</h4>
-          </div>
-          <p>GWA simulator</p>
         </div>
       </div>
     </div>
@@ -68,13 +43,12 @@
 
 <style>
   .hero-section {
-    padding-top: 10rem;
-    padding-bottom: 6rem;
-    min-height: 90vh;
+    padding-top: 9rem;
+    padding-bottom: 7rem;
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--border-subtle);
   }
   
   .hero-container {
@@ -86,227 +60,105 @@
   
   .hero-badge-container {
     display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
   }
   
   .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    font-weight: 900;
-    letter-spacing: -0.03em;
+    font-size: 3rem;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    font-weight: 800;
+  }
+  
+  .accent-maroon {
+    color: var(--text-title);
+    border-bottom: 3px solid var(--brand-maroon-light);
   }
   
   .hero-subtitle {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    max-width: 580px;
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.6;
+    margin-bottom: 2.25rem;
   }
   
   .hero-ctas {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    gap: 0.75rem;
   }
   
-  /* Visual Representation styling */
   .hero-visual {
-    position: relative;
-    height: 480px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
   
   .visual-wrapper {
-    position: relative;
     width: 100%;
-    max-width: 450px;
-  }
-  
-  .visual-bg-glow {
-    position: absolute;
-    inset: -30px;
-    background: radial-gradient(circle, rgba(184, 29, 64, 0.2) 0%, rgba(16, 185, 129, 0.15) 50%, transparent 70%);
-    filter: blur(40px);
-    z-index: 1;
-    pointer-events: none;
+    max-width: 480px;
   }
   
   .mockup-frame {
-    background: rgba(13, 17, 34, 0.85);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-lg), 0 20px 40px rgba(0,0,0,0.4);
-    position: relative;
-    z-index: 2;
-    transition: var(--transition-smooth);
-    width: 100%;
-  }
-
-  .mockup-frame:hover {
-    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-card);
   }
   
   .frame-header {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid var(--border-color);
+    height: 34px;
+    background-color: #0d0e14;
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
     padding: 0 1rem;
-    gap: 1.5rem;
+    position: relative;
   }
   
   .dots {
     display: flex;
-    gap: 6px;
+    gap: 5px;
   }
   
   .dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
+    background-color: var(--border-subtle);
   }
   
   .address-bar {
     font-size: 0.75rem;
-    color: var(--text-muted);
-    font-family: var(--font-display);
-    background: rgba(0, 0, 0, 0.2);
-    padding: 2px 16px;
-    border-radius: 4px;
-    width: 150px;
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    padding: 3px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    width: 180px;
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    margin: 0 auto;
   }
   
   .frame-body {
-    padding: 0.5rem;
-    background: #0d1117;
-  }
-  
-  .preview-placeholder {
-    position: relative;
-    border-radius: 6px;
-    overflow: hidden;
-    aspect-ratio: 16/10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #090a0f;
+    padding: 6px;
   }
   
   .mockup-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    transition: var(--transition-smooth);
-  }
-
-  .mockup-frame:hover .mockup-img {
-    transform: scale(1.02);
-  }
-  
-  .mockup-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent, rgba(7, 9, 19, 0.4));
-    pointer-events: none;
-  }
-  
-  /* Floating elements */
-  .floating-card {
-    position: absolute;
-    padding: 1rem 1.25rem;
-    z-index: 3;
-    animation: float-card-anim 6s infinite ease-in-out;
-    width: 170px;
-  }
-  
-  .floating-card h4 {
-    font-size: 0.95rem;
-    margin: 0;
-  }
-  
-  .floating-card p {
-    font-size: 0.75rem;
-    margin-top: 2px;
-    color: var(--text-muted);
-  }
-  
-  .float-card-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-maroon);
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 0 0 rgba(184, 29, 64, 0.7);
-    animation: pulse-dot-anim 1.8s infinite;
-  }
-  
-  .pulse-dot.green {
-    background-color: var(--color-green);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  }
-  
-  .float-1 {
-    top: -20px;
-    right: -30px;
-    animation-delay: 0s;
-    border-left: 3px solid var(--color-maroon);
-  }
-  
-  .float-2 {
-    bottom: -25px;
-    left: -30px;
-    animation-delay: 3s;
-    border-left: 3px solid var(--color-green);
-  }
-  
-  @keyframes float-card-anim {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-12px);
-    }
-  }
-  
-  @keyframes pulse-dot-anim {
-    0% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(184, 29, 64, 0.5);
-    }
-    70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 6px rgba(184, 29, 64, 0);
-    }
-    100% {
-      transform: scale(0.95);
-      box-shadow: 0 0 0 0 rgba(184, 29, 64, 0);
-    }
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
   }
   
   @media (max-width: 968px) {
     .hero-container {
       grid-template-columns: 1fr;
       text-align: center;
-      gap: 3rem;
+      gap: 3.5rem;
     }
     
     .hero-badge-container {
@@ -314,8 +166,8 @@
     }
     
     .hero-subtitle {
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 600px;
+      margin: 0 auto 2.25rem;
     }
     
     .hero-ctas {
@@ -323,25 +175,14 @@
     }
     
     .hero-visual {
-      height: 380px;
-    }
-    
-    .float-1 {
-      right: 0;
-    }
-    
-    .float-2 {
-      left: 0;
+      max-width: 500px;
+      margin: 0 auto;
     }
   }
-  
-  @media (max-width: 576px) {
+
+  @media (max-width: 480px) {
     .hero-title {
-      font-size: 2.5rem;
-    }
-    
-    .floating-card {
-      display: none;
+      font-size: 2.25rem;
     }
   }
 </style>
