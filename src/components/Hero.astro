@@ -2,40 +2,72 @@
 ---
 <section class="hero-section">
   <div class="container hero-container">
-    <div class="hero-content">
-      <div class="hero-badge-container">
-        <span class="badge badge-maroon">Student Organization</span>
-        <span class="badge badge-green">Open Source</span>
+    <div class="hero-header">
+      <div class="badge-row">
+        <span class="badge badge-maroon">UPLB Student Initiative</span>
+        <span class="badge">Open Source Registry</span>
       </div>
-      <h1 class="hero-title">
-        Building useful utilities <br/>
-        for <span class="accent-maroon">UP Los Baños</span>
-      </h1>
-      <p class="hero-subtitle">
-        We are an independent, open-source initiative creating custom, privacy-first software to streamline student workflows at UPLB. We also provide a collaborative training sandbox for student developers, designers, and creatives.
+      <h1 class="hero-title">Useful utilities built for UP Los Baños</h1>
+      <p class="hero-description">
+        We are an independent developer collective building lightweight, privacy-first tools for the UPLB community, while mentoring the next generation of engineers and designers.
       </p>
-      
-      <div class="hero-ctas">
-        <a href="#projects" class="btn btn-primary">
-          <span>Explore Tools</span>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Browse Projects</a>
+        <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          <span>GitHub Org</span>
         </a>
-        <a href="#community" class="btn btn-secondary">
-          <span>Join the Initiative</span>
-        </a>
+        <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Discord</a>
+        <a href="https://messenger.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Messenger GC</a>
       </div>
     </div>
     
-    <div class="hero-visual">
-      <div class="visual-wrapper">
-        <div class="mockup-frame">
-          <div class="frame-header">
-            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="address-bar">github.com/uplbtools</div>
-          </div>
-          <div class="frame-body">
-            <img src="/github-org-screenshot.png" alt="uplbtools GitHub Organization" class="mockup-img" />
-          </div>
-        </div>
+    <div class="hero-directory-table">
+      <div class="table-container">
+        <table class="directory-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Platform</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="project-info">
+                  <span class="project-name">Room TBA</span>
+                </div>
+              </td>
+              <td>Next.js / Mapbox</td>
+              <td><span class="status-dot dot-active"></span> Active</td>
+              <td><a href="https://room-tba.uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Launch &rarr;</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="project-info">
+                  <span class="project-name">Elbi GradeSim</span>
+                </div>
+              </td>
+              <td>AMIS Extension</td>
+              <td><span class="status-dot dot-active"></span> Active</td>
+              <td><a href="https://gradesim.uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Install &rarr;</a></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="project-info">
+                  <span class="project-name">uplbtools.me</span>
+                </div>
+              </td>
+              <td>Astro / Static</td>
+              <td><span class="status-dot dot-active"></span> Live</td>
+              <td><a href="https://github.com/smmariquit/uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Source &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -43,144 +75,118 @@
 
 <style>
   .hero-section {
-    padding-top: 9rem;
-    padding-bottom: 7rem;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid var(--border-subtle);
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--border-zinc);
   }
   
   .hero-container {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
   
-  .hero-badge-container {
+  .hero-header {
+    max-width: 680px;
+  }
+  
+  .badge-row {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
   }
   
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.15;
-    margin-bottom: 1.25rem;
-    font-weight: 800;
+    margin-bottom: 1rem;
+    font-weight: 700;
   }
   
-  .accent-maroon {
-    color: var(--text-title);
-    border-bottom: 3px solid var(--brand-maroon-light);
-  }
-  
-  .hero-subtitle {
-    font-size: 1.05rem;
-    color: var(--text-body);
+  .hero-description {
+    font-size: 1rem;
+    color: var(--text-zinc-400);
     line-height: 1.6;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.75rem;
   }
   
-  .hero-ctas {
+  .hero-actions {
     display: flex;
     gap: 0.75rem;
+    flex-wrap: wrap;
   }
   
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .visual-wrapper {
+  .hero-directory-table {
     width: 100%;
-    max-width: 480px;
-  }
-  
-  .mockup-frame {
     background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-zinc);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow-card);
   }
   
-  .frame-header {
-    height: 34px;
-    background-color: #0d0e14;
-    border-bottom: 1px solid var(--border-subtle);
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .directory-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+  
+  .directory-table th, .directory-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border-zinc);
+  }
+  
+  .directory-table th {
+    font-weight: 500;
+    color: var(--text-zinc-500);
+    background-color: #0c0c0e;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .directory-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .project-info {
     display: flex;
     align-items: center;
-    padding: 0 1rem;
-    position: relative;
   }
   
-  .dots {
-    display: flex;
-    gap: 5px;
+  .project-name {
+    font-weight: 600;
+    color: var(--text-zinc-50);
   }
   
-  .dot {
-    width: 8px;
-    height: 8px;
+  .status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background-color: var(--border-subtle);
+    margin-right: 6px;
+    vertical-align: middle;
   }
   
-  .address-bar {
-    font-size: 0.75rem;
-    color: var(--text-body);
-    font-family: var(--font-sans);
-    background-color: var(--bg-main);
-    padding: 3px 16px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
-    width: 180px;
-    text-align: center;
-    margin: 0 auto;
+  .dot-active {
+    background-color: var(--brand-green);
+    box-shadow: 0 0 4px var(--brand-green);
   }
   
-  .frame-body {
-    background-color: #090a0f;
-    padding: 6px;
+  .table-link {
+    color: var(--text-zinc-400);
+    font-weight: 500;
   }
   
-  .mockup-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--radius-md);
+  .table-link:hover {
+    color: var(--text-zinc-50);
   }
   
-  @media (max-width: 968px) {
-    .hero-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-      gap: 3.5rem;
-    }
-    
-    .hero-badge-container {
-      justify-content: center;
-    }
-    
-    .hero-subtitle {
-      max-width: 600px;
-      margin: 0 auto 2.25rem;
-    }
-    
-    .hero-ctas {
-      justify-content: center;
-    }
-    
-    .hero-visual {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .hero-title {
       font-size: 2.25rem;
     }

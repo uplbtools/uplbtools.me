@@ -1,37 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette (Clean, Modern Slate & Tech Accent) */
-  --bg-main: #090b11;
-  --bg-card: #11131c;
-  --bg-card-hover: #161925;
-  --border-subtle: #1f2231;
-  --border-focus: #373b54;
+  /* Color Palette (Refined Zinc / Monochrome with subtle maroon/green accents) */
+  --bg-black: #09090b;
+  --bg-card: #09090b;
+  --border-zinc: #27272a;
+  --border-zinc-hover: #3f3f46;
   
-  /* Modern Refined Brand Colors (UPLB Maroon & Forest Green as strict accents) */
+  --text-zinc-50: #fafafa;
+  --text-zinc-200: #e4e4e7;
+  --text-zinc-400: #a1a1aa;
+  --text-zinc-500: #71717a;
+  
+  /* Strictly defined brand colors (used minimally) */
   --brand-maroon: #991b1b;
-  --brand-maroon-light: #ef4444;
+  --brand-maroon-muted: #450a0a;
   --brand-green: #065f46;
-  --brand-green-light: #10b981;
-  
-  /* Text System */
-  --text-title: #f8fafc;
-  --text-body: #94a3b8;
-  --text-muted: #475569;
+  --brand-green-muted: #062f1e;
   
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Plus Jakarta Sans', var(--font-sans);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  /* Shadows and Details */
-  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
-  --shadow-button: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --radius-lg: 12px;
-  --radius-md: 8px;
-  --radius-sm: 4px;
-  
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.1s ease;
 }
 
 /* CSS Reset */
@@ -44,8 +34,8 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  color: var(--text-body);
-  background-color: var(--bg-main);
+  color: var(--text-zinc-200);
+  background-color: var(--bg-black);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -56,149 +46,154 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-main);
+  background: var(--bg-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f2231;
-  border-radius: 9999px;
-  border: 2px solid var(--bg-main);
+  background: var(--border-zinc);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-maroon-light);
+  background: var(--text-zinc-500);
 }
 
-/* Structure & Container */
+/* Container & Layout */
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
 .section {
-  padding: 7rem 0;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-zinc);
 }
 
-/* Typography Rules */
+/* Typography */
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  color: var(--text-title);
-  font-weight: 700;
+  color: var(--text-zinc-50);
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 p {
   line-height: 1.6;
+  color: var(--text-zinc-400);
 }
 
-/* Buttons (Solid, functional, no neon glow) */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+/* Clean UI Buttons (Shadcn style) */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  font-family: var(--font-sans);
-  font-weight: 500;
+  padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  border-radius: var(--radius-md);
+  font-weight: 500;
+  border-radius: 6px;
   cursor: pointer;
   transition: var(--transition-fast);
-  border: 1px solid transparent;
-  text-decoration: none;
+  border: 1px solid var(--border-zinc);
+  background-color: transparent;
+  color: var(--text-zinc-200);
 }
 
 .btn-primary {
-  background-color: var(--brand-maroon-light);
-  color: #ffffff;
-  box-shadow: var(--shadow-button);
+  background-color: var(--text-zinc-50);
+  color: var(--bg-black);
+  border-color: var(--text-zinc-50);
 }
 
 .btn-primary:hover {
-  background-color: #f87171;
+  background-color: var(--text-zinc-200);
+  border-color: var(--text-zinc-200);
 }
 
 .btn-secondary {
-  background-color: #161822;
-  border-color: var(--border-subtle);
-  color: var(--text-title);
+  background-color: transparent;
+  border-color: var(--border-zinc);
+  color: var(--text-zinc-200);
 }
 
 .btn-secondary:hover {
-  background-color: #212534;
-  border-color: var(--border-focus);
+  background-color: #18181b;
+  border-color: var(--text-zinc-500);
 }
 
-.btn-green {
-  background-color: var(--brand-green-light);
+.btn-maroon {
+  background-color: var(--brand-maroon);
   color: #ffffff;
-  box-shadow: var(--shadow-button);
+  border-color: var(--brand-maroon);
 }
 
-.btn-green:hover {
-  background-color: #34d399;
+.btn-maroon:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
 }
 
-/* Standardized Cards */
+/* Clean Cards (Outline-first, solid background) */
 .card {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem;
-  transition: var(--transition-normal);
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-zinc);
+  border-radius: 8px;
+  padding: 1.75rem;
+  transition: var(--transition-fast);
 }
 
 .card:hover {
-  border-color: var(--border-focus);
-  background-color: var(--bg-card-hover);
-  transform: translateY(-2px);
+  border-color: var(--border-zinc-hover);
 }
 
-/* Badges (Not glowing, clean) */
+/* Simple Tech Tag Badges */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 9999px;
-  font-family: var(--font-display);
-  letter-spacing: 0.02em;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #18181b;
+  border: 1px solid var(--border-zinc);
+  color: var(--text-zinc-400);
 }
 
 .badge-maroon {
-  background: rgba(239, 68, 68, 0.1);
-  color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background-color: var(--brand-maroon-muted);
+  border-color: var(--brand-maroon);
+  color: #fca5a5;
 }
 
 .badge-green {
-  background: rgba(16, 185, 129, 0.1);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background-color: var(--brand-green-muted);
+  border-color: var(--brand-green);
+  color: #86efac;
 }
 
-/* Grid Utilities */
+/* Grids */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  gap: 1rem;
 }
 
 @media (max-width: 768px) {
   .grid-2, .grid-3 {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 }

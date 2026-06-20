@@ -3,10 +3,9 @@
 <section id="projects" class="section projects-section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-green">Production Registry</span>
-      <h2 class="section-title-center">Active utilities built for the student body</h2>
-      <p class="section-subtitle-center">
-        Each project addresses a specific hurdle in campus life. Every repository is audited for data leaks and operates completely client-side.
+      <h2 class="section-title">Active Projects</h2>
+      <p class="section-subtitle">
+        Below are the primary tools developed and maintained by the collective.
       </p>
     </div>
     
@@ -14,29 +13,22 @@
       <!-- Project: Room TBA -->
       <div class="card project-card">
         <div class="project-preview">
-          <div class="preview-header">
-            <span class="preview-url">room-tba.uplbtools.me</span>
-          </div>
-          <img src="/room-tba-screenshot.png" alt="Room TBA screenshot preview" class="preview-img" />
+          <img src="/room-tba-screenshot.png" alt="Room TBA Search Utility" class="preview-img" />
         </div>
         
         <div class="project-meta">
           <div class="meta-tags">
-            <span class="tag tag-maroon">Interactive Map</span>
-            <span class="tag">NextJS</span>
-            <span class="tag">Open Source</span>
+            <span class="badge badge-maroon">Interactive Map</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">Mapbox GL</span>
           </div>
           <h3>Room TBA</h3>
-          <p>
-            An interactive 3D map interface designed to help UPLB students look up empty rooms, review schedules by building, and find routes. Reduces registration friction by giving students immediate visual access to academic schedules.
+          <p class="project-desc">
+            A utility map that helps UPLB students look up room schedules, navigate between class buildings, and view jeepney routes around the campus.
           </p>
           <div class="meta-actions">
-            <a href="https://room-tba.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <span>Launch Utility</span>
-            </a>
-            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>Repository</span>
-            </a>
+            <a href="https://room-tba.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Launch App</a>
+            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub</a>
           </div>
         </div>
       </div>
@@ -44,100 +36,74 @@
       <!-- Project: GradeSim -->
       <div class="card project-card">
         <div class="project-preview">
-          <div class="preview-header">
-            <span class="preview-url">gradesim.uplbtools.me</span>
-          </div>
-          <img src="/gradesim-screenshot.png" alt="GradeSim screenshot preview" class="preview-img" />
+          <img src="/gradesim-screenshot.png" alt="GradeSim AMIS Extension" class="preview-img" />
         </div>
         
         <div class="project-meta">
           <div class="meta-tags">
-            <span class="tag tag-green">Browser Extension</span>
-            <span class="tag">GWA Tools</span>
-            <span class="tag">Local storage</span>
+            <span class="badge badge-green">Browser Extension</span>
+            <span class="badge">GWA Calc</span>
+            <span class="badge">JavaScript</span>
           </div>
           <h3>Elbi GradeSim</h3>
-          <p>
-            A lightweight extension compatible with Chrome, Firefox, and Edge. Integrates directly with the UPLB AMIS portal interface, automating GWA calculations and simulating the remaining units needed to meet academic honors criteria.
+          <p class="project-desc">
+            A lightweight GWA simulation browser extension that overlays on the UPLB AMIS grades portal to calculate and model target graduation honor requirements.
           </p>
           <div class="meta-actions">
-            <a href="https://gradesim.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-green">
-              <span>Get Extension</span>
-            </a>
-            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>Repository</span>
-            </a>
+            <a href="https://gradesim.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Install Extension</a>
+            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub</a>
           </div>
         </div>
       </div>
     </div>
     
-    <!-- Future Tool Teaser (Clean, solid, no glowing effects) -->
-    <div class="card teaser-card">
-      <div class="teaser-content">
-        <h3>Have a tool idea to optimize campus enlistment or navigation?</h3>
-        <p>We are a growing community looking to collaborate. If you are developing a local utility, or have a product wireframe that solves a student issue, we can help you review, host, and maintain it under the organization.</p>
-        <a href="#community" class="btn btn-secondary">
-          <span>Pitch a Project</span>
-        </a>
+    <div class="pitch-container">
+      <div class="pitch-card">
+        <div class="pitch-text">
+          <h3>Have an idea for a student utility?</h3>
+          <p>We host and help maintain tools built by UPLB students. If you have a script, an extension, or a static page that benefits the campus community, reach out to join our GitHub organization.</p>
+        </div>
+        <div class="pitch-action">
+          <a href="#community" class="btn btn-secondary">Get in Touch</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .projects-section {
-    background-color: #090b11;
-  }
-  
   .section-header {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
   
-  .section-title-center {
-    font-size: 2.25rem;
-    margin-top: 1rem;
-    margin-bottom: 0.75rem;
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
   
-  .section-subtitle-center {
-    font-size: 1rem;
-    color: var(--text-body);
-    max-width: 600px;
+  .section-subtitle {
+    font-size: 0.925rem;
+    color: var(--text-zinc-500);
   }
   
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .project-card {
     padding: 0;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
   
   .project-preview {
-    border-bottom: 1px solid var(--border-subtle);
-    background-color: #0c0d14;
-  }
-  
-  .preview-header {
-    height: 32px;
-    background-color: #0d0e14;
-    border-bottom: 1px solid var(--border-subtle);
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-  }
-  
-  .preview-url {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-family: var(--font-sans);
+    background-color: #0c0c0e;
+    border-bottom: 1px solid var(--border-zinc);
+    overflow: hidden;
   }
   
   .preview-img {
@@ -145,16 +111,10 @@
     aspect-ratio: 16/10;
     object-fit: cover;
     display: block;
-    opacity: 0.95;
-    transition: var(--transition-fast);
-  }
-  
-  .project-card:hover .preview-img {
-    opacity: 1;
   }
   
   .project-meta {
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -162,72 +122,73 @@
   
   .meta-tags {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.35rem;
+    margin-bottom: 0.85rem;
     flex-wrap: wrap;
   }
   
-  .tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 0.2rem 0.5rem;
-    background-color: #171923;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    color: var(--text-body);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .tag-maroon {
-    color: #ef4444;
-    border-color: rgba(239, 68, 68, 0.2);
-  }
-  
-  .tag-green {
-    color: #10b981;
-    border-color: rgba(16, 185, 129, 0.2);
-  }
-  
   .project-meta h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
   }
   
-  .project-meta p {
-    font-size: 0.925rem;
+  .project-desc {
+    font-size: 0.85rem;
     line-height: 1.5;
-    color: var(--text-body);
-    margin-bottom: 1.5rem;
+    color: var(--text-zinc-400);
+    margin-bottom: 1.25rem;
     flex-grow: 1;
   }
   
   .meta-actions {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
   
-  .teaser-card {
-    padding: 2.5rem;
-    text-align: left;
-    border-color: var(--border-subtle);
+  .btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
   }
   
-  .teaser-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  .pitch-container {
+    margin-top: 1.5rem;
   }
   
-  .teaser-content p {
-    font-size: 0.95rem;
-    color: var(--text-body);
-    margin-bottom: 1.5rem;
+  .pitch-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border: 1px solid var(--border-zinc);
+    border-radius: 8px;
+    gap: 2rem;
+  }
+  
+  .pitch-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .pitch-text p {
+    font-size: 0.85rem;
     line-height: 1.5;
+    color: var(--text-zinc-400);
   }
   
-  @media (max-width: 968px) {
+  .pitch-action {
+    flex-shrink: 0;
+  }
+  
+  @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .pitch-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
     }
   }
 </style>

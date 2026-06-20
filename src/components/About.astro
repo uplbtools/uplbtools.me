@@ -4,54 +4,29 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-intro">
-        <span class="badge badge-maroon">Core Mission</span>
-        <h2 class="section-title">A modern, open training ground for developers and designers</h2>
+        <h2 class="section-title">An open codebase and incubator for student developers</h2>
         <p class="about-desc">
-          uplb.tools is a collaborative project registry. We aim to address common student struggles—like mapping out room schedules or managing academic pathways—by building robust, local-first web applications.
+          We build tools that make campus enlistment, navigation, and administrative simulator processes smoother. Each of our tools is entirely open source, client-side, and designed to respect student privacy.
         </p>
         <p class="about-desc">
-          Beyond software delivery, our primary goal is mentoring. Students of all skill levels work together, learning industry-standard technologies, version control, and interface design guidelines in a real-world sandbox.
+          uplb.tools also functions as a structured training sandbox. Student contributors collaborate via GitHub pull requests, learning software engineering fundamentals, design workflows, and release cycles.
         </p>
-        
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-value">2+</span>
-            <span class="stat-label">Active projects</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">100%</span>
-            <span class="stat-label">Open source codebases</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">Local</span>
-            <span class="stat-label">Privacy first storage</span>
-          </div>
-        </div>
       </div>
       
-      <div class="about-values">
-        <div class="card value-card">
-          <div class="value-header">
-            <span class="value-bullet bullet-maroon"></span>
-            <h3>Practical Utilities</h3>
-          </div>
-          <p>We target actual UPLB campus needs. If a tool makes room search or grade simulation faster for the student body, we code and deploy it.</p>
+      <div class="about-principles">
+        <div class="principle-item">
+          <h4>01 / Utility Driven</h4>
+          <p>We build to solve specific friction points in registration, schedule planning, and grading trackers.</p>
         </div>
-
-        <div class="card value-card">
-          <div class="value-header">
-            <span class="value-bullet bullet-green"></span>
-            <h3>Mentoring Sandboxes</h3>
-          </div>
-          <p>We welcome student designers, copywriters, and developers. Every contributor learns through pull-request reviews, feedback loops, and deployment flows.</p>
+        
+        <div class="principle-item">
+          <h4>02 / Educational Sandbox</h4>
+          <p>We bridge the gap between academic theory and real-world development cycles using peer code reviews.</p>
         </div>
-
-        <div class="card value-card">
-          <div class="value-header">
-            <span class="value-bullet bullet-maroon"></span>
-            <h3>No Data Monetization</h3>
-          </div>
-          <p>We do not run trackers, inject ads, or collect student information. All computations run in the user's browser or as local extensions.</p>
+        
+        <div class="principle-item">
+          <h4>03 / Zero Tracking</h4>
+          <p>No analytics engines, zero student tracking scripts, and no server-side databases.</p>
         </div>
       </div>
     </div>
@@ -59,104 +34,54 @@
 </section>
 
 <style>
-  .about-section {
-    background-color: #090b11;
-  }
-  
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 4rem;
     align-items: flex-start;
   }
   
   .section-title {
-    font-size: 2.25rem;
-    line-height: 1.2;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.25;
   }
   
   .about-desc {
-    font-size: 0.975rem;
+    font-size: 0.925rem;
     line-height: 1.6;
-    color: var(--text-body);
-    margin-bottom: 1.5rem;
+    color: var(--text-zinc-400);
+    margin-bottom: 1rem;
   }
   
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
-    border-top: 1px solid var(--border-subtle);
-    padding-top: 2rem;
-  }
-  
-  .stat-card {
+  .about-principles {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
   }
   
-  .stat-value {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: var(--text-title);
+  .principle-item {
+    border-left: 2px solid var(--border-zinc);
+    padding-left: 1.25rem;
   }
   
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--text-body);
-    margin-top: 0.25rem;
-  }
-  
-  .about-values {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  
-  .value-card {
-    padding: 1.5rem 1.75rem;
-  }
-  
-  .value-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .value-bullet {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-  
-  .bullet-maroon {
-    background-color: var(--brand-maroon-light);
-  }
-  
-  .bullet-green {
-    background-color: var(--brand-green-light);
-  }
-  
-  .value-card h3 {
-    font-size: 1.05rem;
+  .principle-item h4 {
+    font-size: 0.875rem;
     font-weight: 600;
+    color: var(--text-zinc-50);
+    margin-bottom: 0.25rem;
   }
   
-  .value-card p {
-    font-size: 0.9rem;
+  .principle-item p {
+    font-size: 0.85rem;
     line-height: 1.5;
-    color: var(--text-body);
+    color: var(--text-zinc-400);
   }
   
-  @media (max-width: 968px) {
+  @media (max-width: 768px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 3.5rem;
+      gap: 2.5rem;
     }
   }
 </style>

@@ -3,7 +3,7 @@
 <header class="main-header">
   <div class="container header-container">
     <a href="#" class="logo">
-      uplb<span class="logo-dot">.</span><span class="logo-tools">tools</span>
+      uplb<span class="logo-dot">.</span>tools
     </a>
     
     <nav class="nav-links">
@@ -14,7 +14,7 @@
     
     <div class="header-actions">
       <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm-nav">
-        <svg class="icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
         </svg>
         <span>GitHub</span>
@@ -27,15 +27,12 @@
     </div>
   </div>
 
-  <!-- Mobile Navigation overlay -->
   <div class="mobile-nav" id="mobileNav">
     <nav class="mobile-nav-links">
       <a href="#about" class="mobile-nav-link">About</a>
       <a href="#projects" class="mobile-nav-link">Projects</a>
       <a href="#community" class="mobile-nav-link">Community</a>
-      <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="mobile-nav-link github-mob-link">
-        GitHub
-      </a>
+      <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">GitHub</a>
     </nav>
   </div>
 </header>
@@ -47,72 +44,64 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(9, 11, 17, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-    transition: var(--transition-fast);
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-zinc);
   }
   
   .header-container {
-    height: 64px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   
   .logo {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
-    color: var(--text-title);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-zinc-50);
   }
   
   .logo-dot {
-    color: var(--brand-maroon-light);
-  }
-  
-  .logo-tools {
-    color: var(--brand-green-light);
-    font-weight: 500;
+    color: var(--brand-maroon);
   }
   
   .nav-links {
     display: flex;
-    gap: 2.25rem;
+    gap: 1.75rem;
     align-items: center;
   }
   
   .nav-links a {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-body);
-    transition: var(--transition-fast);
+    color: var(--text-zinc-400);
   }
   
   .nav-links a:hover {
-    color: var(--text-title);
+    color: var(--text-zinc-50);
   }
   
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .btn-sm-nav {
-    padding: 0.45rem 0.85rem;
+    padding: 0.35rem 0.65rem;
     font-size: 0.8rem;
-    border-radius: var(--radius-sm);
+    border-radius: 4px;
   }
   
   .mobile-menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 20px;
-    height: 14px;
+    width: 16px;
+    height: 12px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -122,13 +111,12 @@
   .mobile-menu-toggle span {
     width: 100%;
     height: 1.5px;
-    background-color: var(--text-title);
-    border-radius: 1px;
+    background-color: var(--text-zinc-50);
     transition: var(--transition-fast);
   }
   
   .mobile-menu-toggle.active span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(5px) rotate(45deg);
   }
   
   .mobile-menu-toggle.active span:nth-child(2) {
@@ -136,46 +124,42 @@
   }
   
   .mobile-menu-toggle.active span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-5px) rotate(-45deg);
   }
   
   .mobile-nav {
     position: fixed;
-    top: 64px;
+    top: 56px;
     left: 0;
     width: 100%;
     height: 0;
-    background: var(--bg-main);
-    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-black);
+    border-bottom: 1px solid var(--border-zinc);
     overflow: hidden;
-    transition: height 0.2s ease;
+    transition: height 0.15s ease;
     z-index: 99;
   }
   
   .mobile-nav.open {
-    height: 240px;
+    height: 180px;
   }
   
   .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1rem;
+    padding: 1rem 1.5rem;
+    gap: 0.75rem;
   }
   
   .mobile-nav-link {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-body);
-    padding: 0.5rem 0;
+    color: var(--text-zinc-400);
+    padding: 0.25rem 0;
   }
   
   .mobile-nav-link:hover {
-    color: var(--text-title);
-  }
-  
-  .github-mob-link {
-    color: var(--brand-maroon-light);
+    color: var(--text-zinc-50);
   }
 
   @media (max-width: 768px) {
