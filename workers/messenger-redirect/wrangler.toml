@@ -1,0 +1,8 @@
+name = "uplbtools-messenger-redirect"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+account_id = "847a37119fd03f8765b62a6775a6c204"
+
+[[routes]]
+pattern = "messenger.uplbtools.me/*"
+zone_name = "uplbtools.me"
