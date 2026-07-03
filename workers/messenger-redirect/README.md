@@ -17,4 +17,4 @@ cd workers/messenger-redirect
 wrangler deploy
 ```
 
-Requires Cloudflare account access to the `uplbtools.me` zone.
+Uses a **Custom Domain** (`custom_domain = true`) so Cloudflare creates the `messenger` DNS record automatically. Requires Cloudflare account access to the `uplbtools.me` zone.
