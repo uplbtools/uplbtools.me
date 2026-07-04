@@ -53,13 +53,13 @@ Community URLs should match Room TBA constants where linked:
 
 ```
 src/
-  components/   # Hero, Projects, Community, Footer, …
-  layouts/      # Layout.astro
-  pages/        # index.astro
-  styles/       # global.css
+ components/ # Hero, Projects, Community, Footer, …
+ layouts/ # Layout.astro
+ pages/ # index.astro
+ styles/ # global.css
 workers/
-  messenger-redirect/   # Cloudflare Worker for messenger.uplbtools.me
-public/                 # favicon, screenshots
+ messenger-redirect/ # Cloudflare Worker for messenger.uplbtools.me
+public/ # favicon, screenshots
 ```
 
 ## Commits

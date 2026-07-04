@@ -13,7 +13,7 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│ └── favicon.svg
 ├── src
 │   ├── assets
 │   │   └── astro.svg
@@ -22,7 +22,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── layouts
 │   │   └── Layout.astro
 │   └── pages
-│       └── index.astro
+│   └── index.astro
 └── package.json
 ```
 
