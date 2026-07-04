@@ -4,7 +4,7 @@ Thanks for helping maintain the hub for UPLB student open-source tools.
 
 ## Report issues
 
-Open a [GitHub issue](https://github.com/uplbtools/uplbtools.me/issues) for broken links, missing projects, or copy corrections. No PR required for simple listing updates if you prefer — a maintainer can apply them.
+Open a [GitHub issue](https://github.com/uplbtools/uplbtools.me/issues) for broken links, missing projects, or copy corrections. No PR required for simple listing updates if you prefer: a maintainer can apply them.
 
 ## Developers
 

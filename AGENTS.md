@@ -25,7 +25,7 @@ Org-wide agent defaults: see [room-tba/AGENTS.md](https://github.com/uplbtools/r
 
 - **Default branch:** `main` → Vercel production on merge
 - Feature work: branch → PR to `main`
-- No `staging` branch today — use Vercel preview on the PR
+- No `staging` branch today: use Vercel preview on the PR
 
 Community URLs should match Room TBA constants where linked:
 
@@ -39,14 +39,14 @@ Community URLs should match Room TBA constants where linked:
 | Step | When |
 | --- | --- |
 | `npm run build` | Before commit/PR on substantive changes |
-| `npm run dev` | UI/content changes — spot-check locally |
-| 320px / 768px | Layout changes — no overflow; text wraps or truncates |
-| Worker deploy | After editing `workers/*` — redeploy via Wrangler (see worker README) |
+| `npm run dev` | UI/content changes: spot-check locally |
+| 320px / 768px | Layout changes: no overflow; text wraps or truncates |
+| Worker deploy | After editing `workers/*`: redeploy via Wrangler (see worker README) |
 
 ## UI guardrails
 
-- Align visually with **Room TBA** warm maroon + light surfaces ([#1](https://github.com/uplbtools/uplbtools.me/issues/1)) — not the current dark-zinc-only theme long term
-- **No decorative animations** — functional transitions only
+- Align visually with **Room TBA** warm maroon + light surfaces ([#1](https://github.com/uplbtools/uplbtools.me/issues/1)): not the current dark-zinc-only theme long term
+- **No decorative animations**: functional transitions only
 - Buttons and chips must stay inside containers at narrow widths
 
 ## Architecture (short)
