@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Terms of Use | uplb.tools"
+  description="Terms for using UPLB Tools and its volunteer projects."
+>
+  <Header />
+  <main id="main-content" class="legal-main">
+    <div class="container legal-container">
+      <a href="/" class="legal-back">&larr; Home</a>
+
+      <header class="legal-hero">
+        <p class="legal-eyebrow">Legal</p>
+        <h1>Terms of Use</h1>
+        <p class="legal-lede">
+          Last updated: July 4, 2026. By using uplb.tools or our linked volunteer projects you
+          agree to these terms.
+        </p>
+      </header>
+
+      <article class="legal-body">
+        <section>
+          <h2>Who we are</h2>
+          <p>
+            uplb.tools is an independent, student-led open-source collective building utilities
+            for the UPLB community. We are <strong>not</strong> an official UPLB website, office,
+            or administrative body. Our tools are volunteer-maintained and provided free of charge.
+          </p>
+        </section>
+
+        <section>
+          <h2>Scope</h2>
+          <p>
+            These terms apply to this hub site and generally to projects we host (Room TBA, Elbi
+            GradeSim, and others under the uplbtools GitHub organization). Individual apps may
+            publish supplemental terms on their own domains.
+          </p>
+        </section>
+
+        <section>
+          <h2>No official status</h2>
+          <p>
+            Do not treat our maps, schedules, simulations, or copy as authoritative university
+            records. Verify enlistment, grades, room assignments, and policy decisions with
+            official UPLB systems and offices.
+          </p>
+        </section>
+
+        <section>
+          <h2>Acceptable use</h2>
+          <ul>
+            <li>Use tools lawfully and respectfully.</li>
+            <li>Do not attempt to disrupt services, scrape aggressively, or probe for vulnerabilities.</li>
+            <li>Do not misrepresent volunteer tools as official UPLB products.</li>
+            <li>Contributor accounts must not be shared; edits should reflect good-faith improvements.</li>
+            <li>Follow our <a href="https://github.com/uplbtools/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">Code of Conduct</a> in community spaces.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Open source</h2>
+          <p>
+            Most project source code is published on GitHub under open-source licenses noted in
+            each repository. Licenses govern code reuse; they do not grant rights to university
+            trademarks or third-party data.
+          </p>
+        </section>
+
+        <section>
+          <h2>Contributions</h2>
+          <p>
+            By submitting issues, pull requests, or in-app edit proposals you grant maintainers
+            the rights needed to review, merge, and deploy your contribution under the project's
+            license. You represent that you have the right to submit the material.
+          </p>
+        </section>
+
+        <section>
+          <h2>Disclaimer</h2>
+          <p>
+            Tools are provided "as is" without warranties. Volunteers are not liable for academic,
+            administrative, or personal decisions you make using our software, including incorrect
+            schedules, maps, or grade simulations.
+          </p>
+        </section>
+
+        <section>
+          <h2>Availability</h2>
+          <p>
+            We may modify, suspend, or discontinue features without notice. Volunteer bandwidth
+            limits how quickly bugs are fixed.
+          </p>
+        </section>
+
+        <section>
+          <h2>Changes</h2>
+          <p>
+            We may update these terms. Continued use after the "Last updated" date changes
+            constitutes acceptance of the revised terms.
+          </p>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <p>
+            Questions? Use
+            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub</a>
+            or
+            <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer">Discord</a>.
+          </p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-main {
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-zinc);
+  }
+
+  .legal-container {
+    max-width: 44rem;
+  }
+
+  .legal-back {
+    font-size: 0.85rem;
+    color: var(--text-zinc-500);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .legal-back:hover {
+    color: var(--text-zinc-200);
+  }
+
+  .legal-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-zinc-500);
+    margin: 0 0 0.75rem;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin: 0 0 1rem;
+  }
+
+  .legal-lede {
+    margin: 0 0 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .legal-body section {
+    margin-bottom: 2rem;
+  }
+
+  .legal-body h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .legal-body ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .legal-body li {
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-body a {
+    color: var(--text-zinc-200);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-body a:hover {
+    color: var(--text-zinc-50);
+  }
+</style>

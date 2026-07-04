@@ -1,0 +1,238 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy | uplb.tools"
+  description="How UPLB Tools and its volunteer projects handle data."
+>
+  <Header />
+  <main id="main-content" class="legal-main">
+    <div class="container legal-container">
+      <a href="/" class="legal-back">&larr; Home</a>
+
+      <header class="legal-hero">
+        <p class="legal-eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="legal-lede">
+          Last updated: July 4, 2026. <strong>uplb.tools</strong> is an independent,
+          student-led open-source collective. We are <strong>not</strong> officially
+          affiliated with, endorsed by, or representing the University of the Philippines
+          Los Baños (UPLB) administration.
+        </p>
+      </header>
+
+      <article class="legal-body">
+        <section>
+          <h2>Scope</h2>
+          <p>
+            This policy covers the uplb.tools organization hub (this website) and describes
+            practices common across our volunteer projects — including Room TBA, Elbi GradeSim,
+            and other tools linked from our GitHub organization. Individual apps may publish
+            more specific policies on their own domains; where they differ, the app-specific
+            page controls for that product.
+          </p>
+        </section>
+
+        <section>
+          <h2>What we build</h2>
+          <p>
+            We create free campus utilities for UPLB students: maps, schedule tools, browser
+            extensions, and related open-source software. Most tools are maintained by
+            volunteers in their spare time. Data quality depends on community contributions
+            and may be incomplete or out of date.
+          </p>
+        </section>
+
+        <section>
+          <h2>Information we may process</h2>
+
+          <h3>Using this hub site</h3>
+          <ul>
+            <li>
+              <strong>Hosting logs.</strong> Vercel and our infrastructure providers may log
+              request metadata (IP address, user agent, timestamps) for security and reliability.
+            </li>
+            <li>
+              <strong>Analytics.</strong> We may use privacy-focused web analytics (for example
+              Vercel Analytics) on public pages to understand traffic patterns. We do not
+              intentionally collect student numbers or legal names through analytics.
+            </li>
+          </ul>
+
+          <h3>Using linked tools (general patterns)</h3>
+          <ul>
+            <li>
+              <strong>Browsing without an account.</strong> Many tools work without sign-in.
+              They may store preferences locally in your browser (recent searches, term selection,
+              offline caches) and use analytics similar to this hub.
+            </li>
+            <li>
+              <strong>Contributors and editors.</strong> Tools with edit flows (for example Room TBA)
+              may store usernames, hashed passwords, roles, and audit metadata for proposals and
+              published changes. Sessions typically use httpOnly cookies scoped to that app.
+            </li>
+            <li>
+              <strong>Class and campus data.</strong> Schedule and map data come from public or
+              volunteer-curated sources. We do not import or store instructor names in our
+              public databases where sanitization policies apply.
+            </li>
+            <li>
+              <strong>Browser extensions.</strong> Extensions like GradeSim run in your browser
+              and interact with third-party campus portals under their own terms. Extension
+              permissions are described in each store listing and repository README.
+            </li>
+          </ul>
+
+          <h3>Community channels</h3>
+          <ul>
+            <li>
+              <strong>GitHub.</strong> Contributions, issues, and pull requests are public on
+              GitHub under GitHub's privacy policy.
+            </li>
+            <li>
+              <strong>Discord.</strong> Our Discord server is governed by Discord's terms and
+              privacy policy. Messages you post there are handled by Discord.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>How we use data</h2>
+          <ul>
+            <li>Operate, secure, and improve our tools.</li>
+            <li>Debug outages and abuse.</li>
+            <li>Attribute edits and proposals to contributor accounts where applicable.</li>
+          </ul>
+          <p>We do not sell personal data.</p>
+        </section>
+
+        <section>
+          <h2>Data retention</h2>
+          <p>
+            Campus entity data is kept while a tool remains useful to students. Contributor
+            accounts and audit history may be retained for integrity and moderation. You may
+            request account-related questions through our community channels; complete erasure
+            may be limited where records are needed for abuse prevention or edit attribution.
+          </p>
+        </section>
+
+        <section>
+          <h2>Third-party services</h2>
+          <p>
+            Our stack commonly includes Vercel (hosting), Supabase or similar Postgres providers
+            (application data), Cloudflare (assets/CDN where configured), Mapbox or MapTiler
+            (maps), and GitHub (source). Each provider processes data under its own policy.
+          </p>
+        </section>
+
+        <section>
+          <h2>Children</h2>
+          <p>
+            Our tools are intended for university students and volunteers. We do not knowingly
+            collect data from children under 13.
+          </p>
+        </section>
+
+        <section>
+          <h2>Changes</h2>
+          <p>
+            We may update this policy. Material changes will be reflected by the "Last updated"
+            date above.
+          </p>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <p>
+            Questions? Open a discussion on
+            <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub</a>
+            or reach volunteers through our
+            <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer">Discord</a>.
+          </p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-main {
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-zinc);
+  }
+
+  .legal-container {
+    max-width: 44rem;
+  }
+
+  .legal-back {
+    font-size: 0.85rem;
+    color: var(--text-zinc-500);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .legal-back:hover {
+    color: var(--text-zinc-200);
+  }
+
+  .legal-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-zinc-500);
+    margin: 0 0 0.75rem;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin: 0 0 1rem;
+  }
+
+  .legal-lede {
+    margin: 0 0 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .legal-body section {
+    margin-bottom: 2rem;
+  }
+
+  .legal-body h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .legal-body h3 {
+    font-size: 0.95rem;
+    margin: 1.25rem 0 0.5rem;
+    color: var(--text-zinc-50);
+  }
+
+  .legal-body ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .legal-body li {
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-body a {
+    color: var(--text-zinc-200);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-body a:hover {
+    color: var(--text-zinc-50);
+  }
+</style>
