@@ -22,11 +22,12 @@ PAD_X = 80
 PAD_BOTTOM = 64
 TEXT_MAX = 500
 ICON_SIZE = 68
-GH_ICON = 18
+GH_ICON = 20
 
 WHITE = (255, 255, 255)
 CREAM = (248, 236, 234)
-SHADOW = (12, 6, 6, 140)
+SHADOW_SOFT = (8, 4, 4, 110)
+SHADOW_HARD = (0, 0, 0, 200)
 
 
 def hsl_to_rgb(h: float, s: float, l: float) -> tuple[int, int, int]:
@@ -44,17 +45,17 @@ def paste_cover(base: Image.Image, overlay: Image.Image) -> None:
 
 
 def draw_overlay(img: Image.Image) -> None:
-    """Full-width bottom fade. No boxed scrim."""
+    """Bottom + left wash so type stays legible when scaled down."""
     layer = Image.new("RGBA", (W, H))
     px = layer.load()
     for y in range(H):
-        t = y / (H - 1)
         for x in range(W):
-            # Strongest wash across full width near the bottom third.
-            lift = max(0.0, (y - H * 0.42) / (H * 0.58)) ** 1.15
-            alpha = int(30 + 200 * lift)
-            alpha = min(alpha, 230)
-            px[x, y] = (*hsl_to_rgb(5, 48, 14), alpha)
+            bottom = max(0.0, (y - H * 0.24) / (H * 0.76)) ** 1.02
+            left = max(0.0, 1.0 - x / (W * 0.68)) ** 0.9
+            strength = min(1.0, bottom * 0.72 + left * 0.42)
+            alpha = int(55 + 205 * strength)
+            alpha = min(alpha, 245)
+            px[x, y] = (*hsl_to_rgb(5, 50, 12), alpha)
     img.paste(layer, (0, 0), layer)
 
 
@@ -80,7 +81,8 @@ def draw_shadow_text(
     fill: tuple[int, ...],
 ) -> None:
     x, y = xy
-    draw.text((x + 1, y + 2), text, fill=SHADOW, font=font)
+    draw.text((x + 2, y + 3), text, fill=SHADOW_SOFT, font=font)
+    draw.text((x + 1, y + 2), text, fill=SHADOW_HARD, font=font)
     draw.text((x, y), text, fill=fill, font=font)
 
 
@@ -109,12 +111,12 @@ def draw_sub_line(
     regular: ImageFont.FreeTypeFont,
     emphasis: ImageFont.FreeTypeFont,
 ) -> None:
-    draw.text((x, y), left, fill=WHITE, font=emphasis)
+    draw_shadow_text(draw, (x, y), left, emphasis, WHITE)
     left_w, _ = measure(draw, left, emphasis)
     mid = "  ·  "
-    draw.text((x + left_w, y), mid, fill=(255, 255, 255, 140), font=regular)
+    draw_shadow_text(draw, (x + left_w, y), mid, regular, (255, 255, 255, 185))
     mid_w, _ = measure(draw, mid, regular)
-    draw.text((x + left_w + mid_w, y), right, fill=WHITE, font=emphasis)
+    draw_shadow_text(draw, (x + left_w + mid_w, y), right, emphasis, WHITE)
 
 
 def main() -> None:
@@ -124,12 +126,12 @@ def main() -> None:
     draw_overlay(canvas)
     draw = ImageDraw.Draw(canvas)
 
-    brand = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 40)
-    title_lead = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 32)
-    title = ImageFont.truetype(FONTS / "Raleway-Bold.ttf", 68)
-    sub_emphasis = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 26)
-    sub_regular = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 26)
-    meta = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 19)
+    brand = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 42)
+    title_lead = ImageFont.truetype(FONTS / "Inter-Medium.ttf", 33)
+    title = ImageFont.truetype(FONTS / "Raleway-Bold.ttf", 70)
+    sub_emphasis = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 27)
+    sub_regular = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 27)
+    meta = ImageFont.truetype(FONTS / "Inter-Medium.ttf", 21)
 
     text_x = PAD_X
     gap_sm = 14
@@ -157,7 +159,7 @@ def main() -> None:
     draw_wordmark(draw, wordmark_x, brand_y, brand)
 
     y = block_top + row_h + gap_lg
-    draw.text((text_x, y), "Campus tools for", fill=(255, 255, 255, 190), font=title_lead)
+    draw_shadow_text(draw, (text_x, y), "Campus tools for", title_lead, (255, 255, 255, 220))
     y += lead_h + gap_sm
     draw_shadow_text(draw, (text_x, y), "UP Los Baños", title, WHITE)
     y += title_h + gap_md
@@ -167,7 +169,7 @@ def main() -> None:
     gh = load_github_icon(GH_ICON)
     gh_y = y + max(0, (meta_h - GH_ICON) // 2)
     canvas.paste(gh, (text_x, gh_y), gh)
-    draw.text((text_x + GH_ICON + 8, y), meta_text, fill=(255, 255, 255, 170), font=meta)
+    draw_shadow_text(draw, (text_x + GH_ICON + 8, y), meta_text, meta, (255, 255, 255, 215))
 
     _, title2_w = measure(draw, "UP Los Baños", title)
     assert title2_w <= TEXT_MAX
