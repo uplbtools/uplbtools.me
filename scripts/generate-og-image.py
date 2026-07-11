@@ -8,7 +8,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 FONTS = Path(__file__).resolve().parent / "fonts"
@@ -18,14 +18,15 @@ PHOTO = ROOT / "public" / "uplb-bg.webp"
 OUT = ROOT / "public" / "og.png"
 
 W, H = 1200, 630
-PAD = 72
-TEXT_MAX = 520
-ICON_SIZE = 76
-GH_ICON = 20
+PAD_X = 80
+PAD_BOTTOM = 64
+TEXT_MAX = 500
+ICON_SIZE = 68
+GH_ICON = 18
 
 WHITE = (255, 255, 255)
-INK_ON_DARK = (24, 18, 17)
 CREAM = (248, 236, 234)
+SHADOW = (12, 6, 6, 140)
 
 
 def hsl_to_rgb(h: float, s: float, l: float) -> tuple[int, int, int]:
@@ -43,24 +44,18 @@ def paste_cover(base: Image.Image, overlay: Image.Image) -> None:
 
 
 def draw_overlay(img: Image.Image) -> None:
+    """Full-width bottom fade. No boxed scrim."""
     layer = Image.new("RGBA", (W, H))
     px = layer.load()
     for y in range(H):
+        t = y / (H - 1)
         for x in range(W):
-            bottom = max(0.0, (y - H * 0.12) / (H * 0.88)) ** 1.25
-            vignette = 1.0 - 0.24 * ((2 * x / (W - 1) - 1) ** 2)
-            alpha = int(70 + 175 * bottom * vignette)
-            alpha = min(alpha, 235)
-            px[x, y] = (*hsl_to_rgb(5, 50, 16), alpha)
+            # Strongest wash across full width near the bottom third.
+            lift = max(0.0, (y - H * 0.42) / (H * 0.58)) ** 1.15
+            alpha = int(30 + 200 * lift)
+            alpha = min(alpha, 230)
+            px[x, y] = (*hsl_to_rgb(5, 48, 14), alpha)
     img.paste(layer, (0, 0), layer)
-
-
-def draw_column_scrim(canvas: Image.Image, x: int, y: int, w: int, h: int) -> None:
-    scrim = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(scrim)
-    draw.rounded_rectangle((0, 0, w - 1, h - 1), radius=24, fill=(18, 8, 8, 168))
-    scrim = scrim.filter(ImageFilter.GaussianBlur(10))
-    canvas.alpha_composite(scrim, (x, y))
 
 
 def measure(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[int, int]:
@@ -71,16 +66,7 @@ def measure(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) 
 def load_github_icon(size: int) -> Image.Image:
     with tempfile.NamedTemporaryFile(suffix=".png") as tmp:
         subprocess.run(
-            [
-                "rsvg-convert",
-                "-w",
-                str(size),
-                "-h",
-                str(size),
-                str(GITHUB_SVG),
-                "-o",
-                tmp.name,
-            ],
+            ["rsvg-convert", "-w", str(size), "-h", str(size), str(GITHUB_SVG), "-o", tmp.name],
             check=True,
         )
         return Image.open(tmp.name).convert("RGBA")
@@ -94,7 +80,7 @@ def draw_shadow_text(
     fill: tuple[int, ...],
 ) -> None:
     x, y = xy
-    draw.text((x + 1, y + 2), text, fill=(INK_ON_DARK[0], INK_ON_DARK[1], INK_ON_DARK[2], 160), font=font)
+    draw.text((x + 1, y + 2), text, fill=SHADOW, font=font)
     draw.text((x, y), text, fill=fill, font=font)
 
 
@@ -103,13 +89,15 @@ def draw_wordmark(
     x: int,
     y: int,
     brand_font: ImageFont.FreeTypeFont,
-) -> None:
+) -> int:
     draw_shadow_text(draw, (x, y), "uplb", brand_font, WHITE)
-    uplb_w, _ = measure(draw, "uplb", brand_font)
+    uplb_w, brand_h = measure(draw, "uplb", brand_font)
     dot_x = x + uplb_w
     draw_shadow_text(draw, (dot_x, y), ".", brand_font, CREAM)
     dot_w, _ = measure(draw, ".", brand_font)
     draw_shadow_text(draw, (dot_x + dot_w, y), "tools", brand_font, WHITE)
+    tools_w, _ = measure(draw, "tools", brand_font)
+    return uplb_w + dot_w + tools_w, brand_h
 
 
 def draw_sub_line(
@@ -124,7 +112,7 @@ def draw_sub_line(
     draw.text((x, y), left, fill=WHITE, font=emphasis)
     left_w, _ = measure(draw, left, emphasis)
     mid = "  ·  "
-    draw.text((x + left_w, y), mid, fill=(255, 255, 255, 150), font=regular)
+    draw.text((x + left_w, y), mid, fill=(255, 255, 255, 140), font=regular)
     mid_w, _ = measure(draw, mid, regular)
     draw.text((x + left_w + mid_w, y), right, fill=WHITE, font=emphasis)
 
@@ -136,15 +124,17 @@ def main() -> None:
     draw_overlay(canvas)
     draw = ImageDraw.Draw(canvas)
 
-    brand = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 42)
-    title_lead = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 34)
-    title = ImageFont.truetype(FONTS / "Raleway-Bold.ttf", 72)
-    sub_emphasis = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 27)
-    sub_regular = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 27)
-    meta = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 20)
+    brand = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 40)
+    title_lead = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 32)
+    title = ImageFont.truetype(FONTS / "Raleway-Bold.ttf", 68)
+    sub_emphasis = ImageFont.truetype(FONTS / "Inter-SemiBold.ttf", 26)
+    sub_regular = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 26)
+    meta = ImageFont.truetype(FONTS / "Inter-Regular.ttf", 19)
 
-    text_x = PAD
-    block_bottom = H - PAD
+    text_x = PAD_X
+    gap_sm = 14
+    gap_md = 22
+    gap_lg = 28
 
     meta_text = "Open source on GitHub"
     _, meta_h = measure(draw, meta_text, meta)
@@ -153,33 +143,31 @@ def main() -> None:
     _, lead_h = measure(draw, "Campus tools for", title_lead)
     _, brand_h = measure(draw, "uplb.tools", brand)
 
-    meta_y = block_bottom - meta_h
-    sub_y = meta_y - 36 - sub_h
-    title2_y = sub_y - 22 - title_h
-    title1_y = title2_y - 6 - lead_h
-    brand_y = title1_y - 30 - brand_h
-    icon_y = brand_y + max(0, (brand_h - ICON_SIZE) // 2)
+    row_h = max(ICON_SIZE, brand_h)
+    block_h = row_h + gap_lg + lead_h + gap_sm + title_h + gap_md + sub_h + gap_lg + meta_h
+    block_top = H - PAD_BOTTOM - block_h
 
-    scrim_top = brand_y - 28
-    scrim_h = block_bottom - scrim_top + 20
-    draw_column_scrim(canvas, text_x - 28, scrim_top, TEXT_MAX + 56, scrim_h)
-    draw = ImageDraw.Draw(canvas)
+    icon_y = block_top + (row_h - ICON_SIZE) // 2
+    brand_y = block_top + (row_h - brand_h) // 2
+    wordmark_x = text_x + ICON_SIZE + 16
 
     icon = Image.open(ICON).convert("RGBA")
     icon = icon.resize((ICON_SIZE, ICON_SIZE), Image.Resampling.LANCZOS)
     canvas.paste(icon, (text_x, icon_y), icon)
-
-    wordmark_x = text_x + ICON_SIZE + 18
     draw_wordmark(draw, wordmark_x, brand_y, brand)
 
-    draw.text((text_x, title1_y), "Campus tools for", fill=(255, 255, 255, 188), font=title_lead)
-    draw_shadow_text(draw, (text_x, title2_y), "UP Los Baños", title, WHITE)
-    draw_sub_line(draw, text_x, sub_y, "Room TBA", "Elbi GradeSim", sub_regular, sub_emphasis)
+    y = block_top + row_h + gap_lg
+    draw.text((text_x, y), "Campus tools for", fill=(255, 255, 255, 190), font=title_lead)
+    y += lead_h + gap_sm
+    draw_shadow_text(draw, (text_x, y), "UP Los Baños", title, WHITE)
+    y += title_h + gap_md
+    draw_sub_line(draw, text_x, y, "Room TBA", "Elbi GradeSim", sub_regular, sub_emphasis)
+    y += sub_h + gap_lg
 
     gh = load_github_icon(GH_ICON)
-    gh_y = meta_y + max(0, (meta_h - GH_ICON) // 2)
+    gh_y = y + max(0, (meta_h - GH_ICON) // 2)
     canvas.paste(gh, (text_x, gh_y), gh)
-    draw.text((text_x + GH_ICON + 10, meta_y), meta_text, fill=(255, 255, 255, 165), font=meta)
+    draw.text((text_x + GH_ICON + 8, y), meta_text, fill=(255, 255, 255, 170), font=meta)
 
     _, title2_w = measure(draw, "UP Los Baños", title)
     assert title2_w <= TEXT_MAX
