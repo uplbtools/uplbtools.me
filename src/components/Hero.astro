@@ -56,7 +56,9 @@ const quickLinks = [
 <style>
   .hero-section {
     position: relative;
-    padding: calc(var(--header-height) + 0.75rem) 0 1rem;
+    z-index: 0;
+    margin-top: var(--header-height);
+    padding: 0.75rem 0 1rem;
     overflow: hidden;
     border-bottom: 1px solid var(--border-subtle);
   }
@@ -64,6 +66,7 @@ const quickLinks = [
   .hero-backdrop {
     position: absolute;
     inset: 0;
+    z-index: 0;
     background-image: url("/uplb-bg.webp");
     background-size: cover;
     background-position: center;
