@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "generate:og": "python3 scripts/generate-og-image.py",
     "preview": "astro preview",
     "astro": "astro"
   },
