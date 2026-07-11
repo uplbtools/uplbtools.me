@@ -1,25 +1,21 @@
 ---
 import { tools } from "../data/tools";
+import OpensInNewTab from "./OpensInNewTab.astro";
 ---
-<section id="tools" class="tools-section">
+<section id="tools" class="tools-section" aria-labelledby="tools-heading">
   <div class="container">
     <div class="tools-header">
-      <h2 class="section-title">Campus tools</h2>
+      <h2 id="tools-heading" class="section-title">Campus tools</h2>
       <p class="section-subtitle">
         Open-source utilities for UPLB students. Pick a tool and go.
       </p>
     </div>
 
-    <div class="tools-grid">
+    <div class="tools-grid" role="list">
       {
         tools.map((tool) => (
-          <article class="tool-card card">
-            <a
-              href={tool.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="tool-card__preview"
-            >
+          <article class="tool-card card" role="listitem">
+            <div class="tool-card__preview">
               <img
                 src={tool.screenshot}
                 alt={tool.screenshotAlt}
@@ -27,9 +23,9 @@ import { tools } from "../data/tools";
                 height="400"
                 loading="lazy"
               />
-            </a>
+            </div>
             <div class="tool-card__body">
-              <div class="tool-card__tags">
+              <div class="tool-card__tags" aria-label="Categories">
                 {tool.tags.map((tag) => (
                   <span class="badge">{tag}</span>
                 ))}
@@ -37,12 +33,7 @@ import { tools } from "../data/tools";
                   {tool.statusLabel}
                 </span>
               </div>
-              <h3 class="tool-card__title">
-                <a href={tool.href} target="_blank" rel="noopener noreferrer">
-                  {tool.name}
-                </a>
-              </h3>
-              <p class="tool-card__platform">{tool.platform}</p>
+              <h3 class="tool-card__title">{tool.name}</h3>
               <p class="tool-card__desc">{tool.description}</p>
               <div class="tool-card__actions">
                 <a
@@ -52,6 +43,7 @@ import { tools } from "../data/tools";
                   class="btn btn-primary btn-sm"
                 >
                   {tool.actionLabel}
+                  <OpensInNewTab />
                 </a>
                 {
                   tool.githubHref ? (
@@ -60,8 +52,10 @@ import { tools } from "../data/tools";
                       target="_blank"
                       rel="noopener noreferrer"
                       class="btn btn-secondary btn-sm"
+                      aria-label={`${tool.name} source on GitHub`}
                     >
                       GitHub
+                      <OpensInNewTab />
                     </a>
                   ) : null
                 }
@@ -89,6 +83,9 @@ import { tools } from "../data/tools";
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
     margin-bottom: 2rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
   }
 
   .tool-card {
@@ -99,7 +96,6 @@ import { tools } from "../data/tools";
   }
 
   .tool-card__preview {
-    display: block;
     border-bottom: 1px solid var(--border-subtle);
     background: var(--bg-panel);
     overflow: hidden;
@@ -137,19 +133,6 @@ import { tools } from "../data/tools";
     margin: 0;
   }
 
-  .tool-card__title a:hover {
-    color: var(--brand-maroon);
-  }
-
-  .tool-card__platform {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    margin: 0;
-  }
-
   .tool-card__desc {
     font-size: 0.875rem;
     line-height: 1.5;
@@ -162,6 +145,16 @@ import { tools } from "../data/tools";
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tool-card__preview img {
+      transition: none;
+    }
+
+    .tool-card:hover .tool-card__preview img {
+      transform: none;
+    }
   }
 
   @media (max-width: 640px) {

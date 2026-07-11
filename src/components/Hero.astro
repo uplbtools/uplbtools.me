@@ -1,4 +1,6 @@
 ---
+import OpensInNewTab from "./OpensInNewTab.astro";
+
 const quickLinks = [
   {
     label: "Discord",
@@ -22,7 +24,7 @@ const quickLinks = [
       <p class="hero-description">
         Lightweight, privacy-first open-source tools for the UPLB community.
       </p>
-      <div class="hero-actions">
+      <nav class="hero-actions" aria-label="Community links">
         {
           quickLinks.map((link) => (
             <a
@@ -38,12 +40,14 @@ const quickLinks = [
                 height="16"
                 class="hero-link-icon"
                 decoding="async"
+                aria-hidden="true"
               />
               <span>{link.label}</span>
+              <OpensInNewTab />
             </a>
           ))
         }
-      </div>
+      </nav>
     </div>
   </div>
 </section>
@@ -51,7 +55,7 @@ const quickLinks = [
 <style>
   .hero-section {
     position: relative;
-    padding: calc(var(--header-height) + 1.5rem) 0 1.25rem;
+    padding: calc(var(--header-height) + 0.75rem) 0 1rem;
     overflow: hidden;
     border-bottom: 1px solid var(--border-subtle);
   }
@@ -96,7 +100,7 @@ const quickLinks = [
   .hero-description {
     font-size: 1rem;
     line-height: 1.6;
-    color: hsla(0, 0%, 100%, 0.88);
+    color: hsl(0, 0%, 100%);
     margin-bottom: 1.5rem;
     max-width: 36rem;
   }
@@ -123,5 +127,10 @@ const quickLinks = [
   .hero-actions .btn-secondary:hover {
     background: hsla(0, 0%, 100%, 0.18);
     border-color: hsla(0, 0%, 100%, 0.45);
+  }
+
+  .hero-actions .btn-secondary:focus-visible {
+    outline-color: hsl(0, 0%, 100%);
+    outline-width: 3px;
   }
 </style>

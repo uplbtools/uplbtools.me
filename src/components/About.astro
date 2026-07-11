@@ -1,10 +1,10 @@
 ---
 ---
-<section id="about" class="section about-section">
+<section id="about" class="section about-section" aria-labelledby="about-heading">
   <div class="container">
     <div class="about-grid">
       <div class="about-intro">
-        <h2 class="section-title">
+        <h2 id="about-heading" class="section-title">
           An open codebase and incubator for student developers
         </h2>
         <p class="about-desc">
@@ -25,31 +25,31 @@
         </p>
       </div>
 
-      <div class="about-principles">
-        <div class="principle-item card">
+      <ul class="about-principles">
+        <li class="principle-item card">
           <h3>01 / Utility driven</h3>
           <p>
             We build to solve specific friction points in registration, schedule
             planning, and grading trackers.
           </p>
-        </div>
+        </li>
 
-        <div class="principle-item card">
+        <li class="principle-item card">
           <h3>02 / Educational sandbox</h3>
           <p>
             We bridge the gap between academic theory and real-world development
             cycles using peer code reviews.
           </p>
-        </div>
+        </li>
 
-        <div class="principle-item card">
+        <li class="principle-item card">
           <h3>03 / Zero tracking</h3>
           <p>
             No analytics engines, zero student tracking scripts, and no
             server-side databases.
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -65,7 +65,7 @@
   .about-desc {
     font-size: 0.9375rem;
     line-height: 1.65;
-    color: var(--text-muted);
+    color: var(--text-body);
     margin-bottom: 1rem;
   }
 
@@ -73,6 +73,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .principle-item {
@@ -90,6 +93,7 @@
     font-size: 0.875rem;
     line-height: 1.55;
     margin: 0;
+    color: var(--text-body);
   }
 
   @media (max-width: 768px) {

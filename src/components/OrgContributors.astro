@@ -3,6 +3,7 @@ import {
   fetchOrgTopContributors,
   formatGithubContributions,
 } from "../lib/github-org-contributors";
+import OpensInNewTab from "./OpensInNewTab.astro";
 
 const TOP_CONTRIBUTOR_COUNT = 12;
 
@@ -16,11 +17,11 @@ try {
 }
 ---
 
-<section id="contributors" class="section contributors-section">
+<section id="contributors" class="section contributors-section" aria-labelledby="contributors-heading">
   <div class="container">
     <div class="contributors-header">
       <div>
-        <h2 class="section-title">Top contributors</h2>
+        <h2 id="contributors-heading" class="section-title">Top contributors</h2>
         <p class="section-subtitle">
           Commit history across public <code>uplbtools</code> GitHub repositories.
           Bots and automated accounts are filtered out.
@@ -31,48 +32,55 @@ try {
         target="_blank"
         rel="noopener noreferrer"
         class="btn btn-secondary"
+        aria-label="View uplbtools organization on GitHub"
       >
         View org on GitHub
+        <OpensInNewTab />
       </a>
     </div>
 
     {
       loadError ? (
-        <p class="contributors-status contributors-status--error">{loadError}</p>
+        <p class="contributors-status contributors-status--error" role="alert">
+          {loadError}
+        </p>
       ) : contributors.length === 0 ? (
-        <p class="contributors-status">
+        <p class="contributors-status" role="status">
           No public contributors found yet. Check back after the next deploy.
         </p>
       ) : (
         <ul class="contributors-grid">
-          {contributors.map((person) => (
-            <li>
-              <a
-                class="contributor-card card"
-                href={person.profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={person.avatarUrl}
-                  alt=""
-                  width="64"
-                  height="64"
-                  loading="lazy"
-                  class="contributor-card__avatar"
-                />
-                <span class="contributor-card__name">
-                  {person.name ?? person.login}
-                </span>
-                {person.name ? (
-                  <span class="contributor-card__login">@{person.login}</span>
-                ) : null}
-                <span class="contributor-card__commits">
-                  {formatGithubContributions(person.contributions)}
-                </span>
-              </a>
-            </li>
-          ))}
+          {contributors.map((person) => {
+            const displayName = person.name ?? person.login;
+            const commits = formatGithubContributions(person.contributions);
+            return (
+              <li>
+                <a
+                  class="contributor-card card"
+                  href={person.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${displayName}, ${commits} across uplbtools repositories on GitHub`}
+                >
+                  <img
+                    src={person.avatarUrl}
+                    alt=""
+                    width="64"
+                    height="64"
+                    loading="lazy"
+                    class="contributor-card__avatar"
+                    aria-hidden="true"
+                  />
+                  <span class="contributor-card__name">{displayName}</span>
+                  {person.name ? (
+                    <span class="contributor-card__login">@{person.login}</span>
+                  ) : null}
+                  <span class="contributor-card__commits">{commits}</span>
+                  <OpensInNewTab />
+                </a>
+              </li>
+            );
+          })}
         </ul>
       )
     }

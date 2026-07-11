@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import OpensInNewTab from '../components/OpensInNewTab.astro';
 ---
 
 <Layout
@@ -148,9 +149,9 @@ import Footer from '../components/Footer.astro';
  <h2>Contact</h2>
  <p>
  Questions? Open a discussion on
- <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub</a>
+ <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub<OpensInNewTab /></a>
  or reach volunteers through our
- <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer">Discord</a>.
+ <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer">Discord<OpensInNewTab /></a>.
  </p>
  </section>
  </article>
@@ -162,7 +163,7 @@ import Footer from '../components/Footer.astro';
 <style>
 .legal-main {
  min-height: 100vh;
- padding-top: 5rem;
+ padding-top: 4rem;
  padding-bottom: 2rem;
  border-bottom: 1px solid var(--border-subtle);
  }

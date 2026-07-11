@@ -9,7 +9,6 @@ export type ToolEntry = {
   actionLabel: string;
   status: ToolStatus;
   statusLabel: string;
-  platform: string;
   tags: string[];
   screenshot: string;
   screenshotAlt: string;
@@ -26,7 +25,6 @@ export const tools: ToolEntry[] = [
     actionLabel: "Launch app",
     status: "active",
     statusLabel: "Active",
-    platform: "Astro / MapLibre",
     tags: ["Map", "Open source"],
     screenshot: "/room-tba-screenshot.png",
     screenshotAlt: "Room TBA campus map and room search",
@@ -41,7 +39,6 @@ export const tools: ToolEntry[] = [
     actionLabel: "Install extension",
     status: "active",
     statusLabel: "Active",
-    platform: "Browser extension",
     tags: ["Extension", "Open source"],
     screenshot: "/gradesim-screenshot.png",
     screenshotAlt: "Elbi GradeSim AMIS extension",

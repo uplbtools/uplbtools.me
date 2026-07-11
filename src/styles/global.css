@@ -16,8 +16,8 @@
   --border-accent: hsl(5, 40%, 42%);
 
   --text-ink: hsl(5, 12%, 16%);
-  --text-body: hsl(5, 12%, 28%);
-  --text-muted: hsl(5, 12%, 42%);
+  --text-body: hsl(5, 14%, 24%);
+  --text-muted: hsl(5, 10%, 38%);
   --text-on-maroon: hsl(0, 0%, 100%);
 
   --shadow-sm: 0 1px 2px hsla(5, 30%, 20%, 0.06);
@@ -41,7 +41,7 @@
   --radius-xl: 1.25rem;
 
   --transition-fast: 0.15s ease;
-  --header-height: 3.5rem;
+  --header-height: 2.75rem;
 }
 
 *,
@@ -54,10 +54,51 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 0.5rem);
   font-family: var(--font-sans);
   color: var(--text-body);
   background-color: var(--bg-page);
   -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.visually-hidden,
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus-visible {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--bg-elevated);
+  color: var(--text-ink);
+  border: 2px solid var(--brand-maroon);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 body {
@@ -105,7 +146,7 @@ h4 {
 
 p {
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-body);
 }
 
 a {
@@ -126,6 +167,7 @@ input:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  min-height: 2.75rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -151,6 +193,11 @@ input:focus-visible {
 
 .btn-primary:hover {
   filter: brightness(1.05);
+}
+
+.btn-primary:focus-visible {
+  outline-color: var(--text-on-maroon);
+  outline-width: 3px;
 }
 
 .btn-secondary {
@@ -216,6 +263,13 @@ input:focus-visible {
   font-size: 0.9375rem;
   color: var(--text-muted);
   max-width: 40rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .btn {
+    transition: none;
+  }
 }
 
 @media (max-width: 768px) {

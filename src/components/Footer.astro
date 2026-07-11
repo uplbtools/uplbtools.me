@@ -1,9 +1,10 @@
 ---
+import OpensInNewTab from "./OpensInNewTab.astro";
 ---
 <footer class="main-footer">
   <div class="container footer-container">
     <div class="footer-brand-side">
-      <a href="/" class="logo">
+      <a href="/" class="logo" aria-label="uplb.tools home">
         <img
           src="/icon.png"
           alt=""
@@ -11,6 +12,7 @@
           height="32"
           class="logo-icon"
           decoding="async"
+          aria-hidden="true"
         />
         uplb<span class="logo-dot">.</span>tools
       </a>
@@ -21,15 +23,15 @@
     </div>
 
     <div class="footer-links-side">
-      <div class="footer-nav">
+      <nav class="footer-nav" aria-label="Page sections">
         <h2 class="footer-heading">Navigation</h2>
         <a href="#tools">Tools</a>
         <a href="#about">About</a>
         <a href="#contributors">Contributors</a>
         <a href="#community">Contribute</a>
-      </div>
+      </nav>
 
-      <div class="footer-socials">
+      <nav class="footer-socials" aria-label="Resources">
         <h2 class="footer-heading">Resources</h2>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Use</a>
@@ -39,6 +41,7 @@
           rel="noopener noreferrer"
         >
           GitHub Organization
+          <OpensInNewTab />
         </a>
         <a
           href="https://github.com/uplbtools/uplbtools.me"
@@ -46,8 +49,9 @@
           rel="noopener noreferrer"
         >
           Website Source
+          <OpensInNewTab />
         </a>
-      </div>
+      </nav>
     </div>
   </div>
 
@@ -101,8 +105,7 @@
   .logo-icon {
     width: 2rem;
     height: 2rem;
-    border-radius: 0.4rem;
-    object-fit: cover;
+    object-fit: contain;
     flex-shrink: 0;
   }
 
