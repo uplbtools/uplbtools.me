@@ -1,28 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Projects from '../components/Projects.astro';
-import Community from '../components/Community.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ToolsGrid from "../components/ToolsGrid.astro";
+import About from "../components/About.astro";
+import OrgContributors from "../components/OrgContributors.astro";
+import Community from "../components/Community.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="uplb.tools | Open-Source Student Utilities for UPLB" description="An open-source software initiative creating custom web applications for students of the University of the Philippines Los Baños (UPLB) and serving as an active training ground.">
- <Header />
- 
- <main id="main-content">
- <Hero />
- <About />
- <Projects />
- <Community />
- </main>
- 
- <Footer />
+<Layout
+  title="uplb.tools | Open-Source Student Utilities for UPLB"
+  description="An open-source software initiative creating custom web applications for students of the University of the Philippines Los Baños (UPLB) and serving as an active training ground."
+>
+  <Header />
+
+  <main id="main-content">
+    <Hero />
+    <ToolsGrid />
+    <About />
+    <OrgContributors />
+    <Community />
+  </main>
+
+  <Footer />
 </Layout>
 
 <style>
- #main-content {
- min-height: 100vh;
- }
+  #main-content {
+    min-height: 100vh;
+  }
 </style>

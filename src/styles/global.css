@@ -1,31 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
-  /* Color Palette (Refined Zinc / Monochrome with subtle maroon/green accents) */
-  --bg-black: #09090b;
-  --bg-card: #09090b;
-  --border-zinc: #27272a;
-  --border-zinc-hover: #3f3f46;
-  
-  --text-zinc-50: #fafafa;
-  --text-zinc-200: #e4e4e7;
-  --text-zinc-400: #a1a1aa;
-  --text-zinc-500: #71717a;
-  
-  /* Strictly defined brand colors (used minimally) */
-  --brand-maroon: #991b1b;
-  --brand-maroon-muted: #450a0a;
-  --brand-green: #065f46;
-  --brand-green-muted: #062f1e;
-  
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  
-  --transition-fast: 0.1s ease;
+  /* Room TBA map-chrome palette */
+  --brand-maroon: hsl(5, 53%, 32%);
+  --brand-maroon-deep: hsl(5, 55%, 27%);
+  --brand-maroon-muted: hsl(5, 40%, 94%);
+  --brand-green: hsl(152, 45%, 28%);
+  --brand-green-muted: hsl(152, 35%, 92%);
+
+  --bg-page: hsl(5, 22%, 96%);
+  --bg-surface: hsl(5, 20%, 97%);
+  --bg-panel: hsl(5, 18%, 96%);
+  --bg-elevated: hsl(0, 0%, 100%);
+
+  --border: hsl(5, 10%, 68%);
+  --border-subtle: hsl(5, 12%, 88%);
+  --border-accent: hsl(5, 40%, 42%);
+
+  --text-ink: hsl(5, 12%, 16%);
+  --text-body: hsl(5, 12%, 28%);
+  --text-muted: hsl(5, 12%, 42%);
+  --text-on-maroon: hsl(0, 0%, 100%);
+
+  --shadow-sm: 0 1px 2px hsla(5, 30%, 20%, 0.06);
+  --shadow-md:
+    0 1px 0 hsla(0, 0%, 100%, 0.7) inset,
+    0 8px 24px hsla(5, 30%, 20%, 0.08);
+
+  --font-sans:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  --font-display: "Raleway", var(--font-sans);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --transition-fast: 0.15s ease;
+  --header-height: 3.5rem;
 }
 
-/* CSS Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -34,8 +55,8 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  color: var(--text-zinc-200);
-  background-color: var(--bg-black);
+  color: var(--text-body);
+  background-color: var(--bg-page);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -44,44 +65,47 @@ body {
   min-height: 100vh;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--bg-black);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-zinc);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-zinc-500);
+  background: var(--bg-page);
 }
 
-/* Container & Layout */
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
 .container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 72rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 .section {
-  padding: 6rem 0;
-  border-bottom: 1px solid var(--border-zinc);
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Typography */
-h1, h2, h3, h4 {
-  color: var(--text-zinc-50);
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-ink);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 p {
   line-height: 1.6;
-  color: var(--text-zinc-400);
+  color: var(--text-muted);
 }
 
 a {
@@ -90,7 +114,13 @@ a {
   transition: var(--transition-fast);
 }
 
-/* Clean UI Buttons (Shadcn style) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--brand-maroon);
+  outline-offset: 2px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -98,102 +128,98 @@ a {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition-fast);
-  border: 1px solid var(--border-zinc);
-  background-color: transparent;
-  color: var(--text-zinc-200);
+  border: 1px solid var(--border);
+  background-color: var(--bg-elevated);
+  color: var(--text-ink);
+  white-space: nowrap;
 }
 
 .btn-primary {
-  background-color: var(--text-zinc-50);
-  color: var(--bg-black);
-  border-color: var(--text-zinc-50);
+  background: linear-gradient(
+    160deg,
+    hsl(5, 58%, 40%),
+    var(--brand-maroon-deep)
+  );
+  color: var(--text-on-maroon);
+  border-color: var(--brand-maroon-deep);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
-  background-color: var(--text-zinc-200);
-  border-color: var(--text-zinc-200);
+  filter: brightness(1.05);
 }
 
 .btn-secondary {
-  background-color: transparent;
-  border-color: var(--border-zinc);
-  color: var(--text-zinc-200);
+  background-color: var(--bg-elevated);
+  border-color: var(--border);
+  color: var(--text-ink);
 }
 
 .btn-secondary:hover {
-  background-color: #18181b;
-  border-color: var(--text-zinc-500);
+  border-color: var(--border-accent);
+  background-color: var(--bg-surface);
 }
 
-.btn-maroon {
-  background-color: var(--brand-maroon);
-  color: #ffffff;
-  border-color: var(--brand-maroon);
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8125rem;
 }
 
-.btn-maroon:hover {
-  background-color: #b91c1c;
-  border-color: #b91c1c;
-}
-
-/* Clean Cards (Outline-first, solid background) */
 .card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-zinc);
-  border-radius: 8px;
-  padding: 1.75rem;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-fast);
 }
 
 .card:hover {
-  border-color: var(--border-zinc-hover);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
 }
 
-/* Simple Tech Tag Badges */
 .badge {
   display: inline-flex;
   align-items: center;
   padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: 4px;
-  background-color: #18181b;
-  border: 1px solid var(--border-zinc);
-  color: var(--text-zinc-400);
+  font-weight: 600;
+  border-radius: 999px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
 }
 
 .badge-maroon {
   background-color: var(--brand-maroon-muted);
-  border-color: var(--brand-maroon);
-  color: #fca5a5;
+  border-color: hsl(5, 35%, 82%);
+  color: var(--brand-maroon);
 }
 
 .badge-green {
   background-color: var(--brand-green-muted);
-  border-color: var(--brand-green);
-  color: #86efac;
+  border-color: hsl(152, 30%, 78%);
+  color: var(--brand-green);
 }
 
-/* Grids */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  margin-bottom: 0.5rem;
 }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+.section-subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  max-width: 40rem;
 }
 
 @media (max-width: 768px) {
-  .grid-2, .grid-3 {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .section {
+    padding: 3rem 0;
   }
 }

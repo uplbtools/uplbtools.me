@@ -1,42 +1,68 @@
 ---
-import LegalMicroLink from './LegalMicroLink.astro';
 ---
 <footer class="main-footer">
   <div class="container footer-container">
     <div class="footer-brand-side">
-      <a href="#" class="logo">
-        uplb<span class="logo-dot">.</span><span class="logo-tools">tools</span>
+      <a href="/" class="logo">
+        <img
+          src="/icon.png"
+          alt=""
+          width="32"
+          height="32"
+          class="logo-icon"
+          decoding="async"
+        />
+        uplb<span class="logo-dot">.</span>tools
       </a>
       <p class="brand-pitch">
-        Building open-source, privacy-preserving utility applications for the student community of the University of the Philippines Los Baños.
+        Building open-source, privacy-preserving utility applications for the
+        student community of the University of the Philippines Los Baños.
       </p>
     </div>
-    
+
     <div class="footer-links-side">
       <div class="footer-nav">
         <h2 class="footer-heading">Navigation</h2>
+        <a href="#tools">Tools</a>
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#community">Community</a>
+        <a href="#contributors">Contributors</a>
+        <a href="#community">Contribute</a>
       </div>
-      
+
       <div class="footer-socials">
         <h2 class="footer-heading">Resources</h2>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Use</a>
-        <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer">GitHub Organization</a>
-        <a href="https://github.com/uplbtools/uplbtools.me" target="_blank" rel="noopener noreferrer">Website Source</a>
+        <a
+          href="https://github.com/uplbtools"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Organization
+        </a>
+        <a
+          href="https://github.com/uplbtools/uplbtools.me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Website Source
+        </a>
       </div>
     </div>
   </div>
-  
+
   <div class="container footer-bottom">
     <div class="disclaimer">
-      <p>Disclaimer: uplb.tools is an independent student-led open-source project. We are not officially affiliated with, endorsed by, or representing the University of the Philippines Los Baños (UPLB) administration.</p>
+      <p>
+        Disclaimer: uplb.tools is an independent student-led open-source project.
+        We are not officially affiliated with, endorsed by, or representing the
+        University of the Philippines Los Baños (UPLB) administration.
+      </p>
     </div>
     <div class="copyright">
-      <p>&copy; {new Date().getFullYear()} uplb.tools. Built by Elbi Student Developers.</p>
-      <LegalMicroLink />
+      <p>
+        &copy; {new Date().getFullYear()} uplb.tools. Built by Elbi Student Developers.
+      </p>
     </div>
   </div>
 </footer>
@@ -44,109 +70,117 @@ import LegalMicroLink from './LegalMicroLink.astro';
 <style>
   .main-footer {
     border-top: 1px solid var(--border-subtle);
-    background-color: #06070a;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    background-color: hsl(5, 16%, 93%);
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
   }
-  
+
   .footer-container {
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
-    margin-bottom: 4rem;
+    gap: 3rem;
+    margin-bottom: 3rem;
   }
-  
+
   .footer-brand-side {
-    max-width: 380px;
+    max-width: 24rem;
   }
-  
+
   .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.25rem;
+    font-weight: 700;
+    font-size: 1.2rem;
     letter-spacing: -0.02em;
-    color: var(--text-title);
-    margin-bottom: 1rem;
-    display: block;
+    color: var(--text-ink);
+    margin-bottom: 0.85rem;
   }
-  
+
+  .logo-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.4rem;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
   .logo-dot {
-    color: var(--brand-maroon-light);
+    color: var(--brand-maroon);
   }
-  
-  .logo-tools {
-    color: var(--brand-green-light);
-    font-weight: 500;
-  }
-  
+
   .brand-pitch {
     font-size: 0.9rem;
     line-height: 1.6;
-    color: var(--text-body);
+    color: var(--text-muted);
   }
-  
+
   .footer-links-side {
     display: flex;
-    gap: 5rem;
+    gap: 4rem;
   }
-  
-  .footer-nav, .footer-socials {
+
+  .footer-nav,
+  .footer-socials {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.65rem;
   }
-  
-  .footer-nav .footer-heading, .footer-socials .footer-heading {
+
+  .footer-heading {
     font-size: 0.8rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
     font-family: var(--font-display);
+    color: var(--text-ink);
   }
-  
-  .footer-nav a, .footer-socials a {
+
+  .footer-nav a,
+  .footer-socials a {
     font-size: 0.875rem;
-    color: var(--text-body);
+    color: var(--text-muted);
     text-decoration: none;
-    transition: var(--transition-fast);
   }
-  
-  .footer-nav a:hover, .footer-socials a:hover {
-    color: var(--text-title);
+
+  .footer-nav a:hover,
+  .footer-socials a:hover {
+    color: var(--brand-maroon);
   }
-  
+
   .footer-bottom {
     border-top: 1px solid var(--border-subtle);
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
     align-items: center;
     text-align: center;
   }
-  
+
   .disclaimer {
-    max-width: 800px;
+    max-width: 50rem;
   }
-  
+
   .disclaimer p {
     font-size: 0.75rem;
     color: var(--text-muted);
     line-height: 1.5;
   }
-  
+
   .copyright p {
     font-size: 0.8rem;
     color: var(--text-muted);
   }
-  
+
   @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;
-      gap: 3rem;
+      gap: 2rem;
     }
-    
+
     .footer-links-side {
-      gap: 4rem;
+      gap: 2.5rem;
     }
   }
 </style>

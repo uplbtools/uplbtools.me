@@ -1,87 +1,48 @@
 ---
+const quickLinks = [
+  {
+    label: "Discord",
+    href: "https://discord.uplbtools.me",
+    icon: "/brand/discord.svg",
+  },
+  {
+    label: "Messenger GC",
+    href: "https://messenger.uplbtools.me",
+    icon: "/brand/messenger.svg",
+  },
+];
 ---
-<section class="hero-section">
+<section class="hero-section" aria-labelledby="hero-title">
+  <div class="hero-backdrop" aria-hidden="true"></div>
   <div class="container hero-container">
-    <div class="hero-top">
-      <div class="hero-header">
-        <div class="badge-row">
-          <span class="badge badge-maroon">UPLB Student Initiative</span>
-          <span class="badge">Open Source Registry</span>
-        </div>
-        <h1 class="hero-title">Useful utilities built for UP Los Baños</h1>
-        <p class="hero-description">
-          We are an independent developer collective building lightweight, privacy-first tools for the UPLB community, while mentoring the next generation of engineers and designers.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Browse Projects</a>
-          <a href="https://github.com/uplbtools" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
-            <span>GitHub Org</span>
-          </a>
-          <a href="https://discord.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Discord</a>
-          <a href="https://messenger.uplbtools.me" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Messenger GC</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="mockup-frame">
-          <div class="frame-header">
-            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="address-bar">github.com/uplbtools</div>
-          </div>
-          <div class="frame-body">
-            <img src="/github-org-screenshot.png" alt="uplbtools GitHub Organization" class="mockup-img" width="1807" height="973" />
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="hero-directory-table">
-      <div class="table-container">
-        <table class="directory-table">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Platform</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="project-info">
-                  <span class="project-name">Room TBA</span>
-                </div>
-              </td>
-              <td>Next.js / Mapbox</td>
-              <td><span class="status-dot dot-active"></span> Active</td>
-              <td><a href="https://room-tba.uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Launch &rarr;</a></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="project-info">
-                  <span class="project-name">Elbi GradeSim</span>
-                </div>
-              </td>
-              <td>AMIS Extension</td>
-              <td><span class="status-dot dot-active"></span> Active</td>
-              <td><a href="https://gradesim.uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Install &rarr;</a></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="project-info">
-                  <span class="project-name">uplbtools.me</span>
-                </div>
-              </td>
-              <td>Astro / Static</td>
-              <td><span class="status-dot dot-active"></span> Live</td>
-              <td><a href="https://github.com/uplbtools/uplbtools.me" target="_blank" rel="noopener noreferrer" class="table-link">Source &rarr;</a></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="hero-copy">
+      <h1 id="hero-title" class="hero-title">
+        Useful utilities built for UP Los Baños
+      </h1>
+      <p class="hero-description">
+        Lightweight, privacy-first open-source tools for the UPLB community.
+      </p>
+      <div class="hero-actions">
+        {
+          quickLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              <img
+                src={link.icon}
+                alt=""
+                width="16"
+                height="16"
+                class="hero-link-icon"
+                decoding="async"
+              />
+              <span>{link.label}</span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -89,189 +50,78 @@
 
 <style>
   .hero-section {
-    padding-top: 8rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid var(--border-zinc);
-  }
-  
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+    position: relative;
+    padding: calc(var(--header-height) + 1.5rem) 0 1.25rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .hero-top {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    gap: 3rem;
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: url("/uplb-bg.webp");
+    background-size: cover;
+    background-position: center;
   }
-  
-  .hero-header {
-    max-width: none;
+
+  .hero-backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      hsla(5, 55%, 32%, 0.92) 0%,
+      hsla(5, 45%, 24%, 0.88) 55%,
+      hsla(5, 30%, 18%, 0.9) 100%
+    );
   }
-  
-  .badge-row {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
   }
-  
+
+  .hero-copy {
+    max-width: 40rem;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    line-height: 1.12;
+    margin-bottom: 0.85rem;
+    color: var(--text-on-maroon);
   }
-  
+
   .hero-description {
     font-size: 1rem;
-    color: var(--text-zinc-400);
     line-height: 1.6;
-    margin-bottom: 1.75rem;
+    color: hsla(0, 0%, 100%, 0.88);
+    margin-bottom: 1.5rem;
+    max-width: 36rem;
   }
-  
+
   .hero-actions {
     display: flex;
-    gap: 0.75rem;
     flex-wrap: wrap;
+    gap: 0.65rem;
   }
 
-  .hero-visual {
-    width: 100%;
-  }
-
-  .mockup-frame {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-zinc);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .frame-header {
-    height: 34px;
-    background-color: #0c0c0e;
-    border-bottom: 1px solid var(--border-zinc);
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    position: relative;
-  }
-
-  .dots {
-    display: flex;
-    gap: 5px;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--border-zinc);
-  }
-
-  .address-bar {
-    font-size: 0.75rem;
-    color: var(--text-zinc-400);
-    background-color: var(--bg-black);
-    padding: 3px 16px;
-    border-radius: 4px;
-    border: 1px solid var(--border-zinc);
-    width: 180px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .frame-body {
-    background-color: #0c0c0e;
-    padding: 6px;
-  }
-
-  .mockup-img {
-    width: 100%;
-    height: auto;
+  .hero-link-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
     display: block;
-    border-radius: 4px;
   }
-  
-  .hero-directory-table {
-    width: 100%;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-zinc);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .table-container {
-    overflow-x: auto;
-  }
-  
-  .directory-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    font-size: 0.875rem;
-  }
-  
-  .directory-table th, .directory-table td {
-    padding: 0.85rem 1.25rem;
-    border-bottom: 1px solid var(--border-zinc);
-  }
-  
-  .directory-table th {
-    font-weight: 500;
-    color: var(--text-zinc-400);
-    background-color: #0c0c0e;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .directory-table tr:last-child td {
-    border-bottom: none;
-  }
-  
-  .project-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .project-name {
-    font-weight: 600;
-    color: var(--text-zinc-50);
-  }
-  
-  .status-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-  
-  .dot-active {
-    background-color: var(--brand-green);
-    box-shadow: 0 0 4px var(--brand-green);
-  }
-  
-  .table-link {
-    color: var(--text-zinc-400);
-    font-weight: 500;
-  }
-  
-  .table-link:hover {
-    color: var(--text-zinc-50);
-  }
-  
-  @media (max-width: 768px) {
-    .hero-top {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
 
-    .hero-title {
-      font-size: 2.25rem;
-    }
+  .hero-actions .btn-secondary {
+    background: hsla(0, 0%, 100%, 0.1);
+    border-color: hsla(0, 0%, 100%, 0.28);
+    color: var(--text-on-maroon);
+  }
+
+  .hero-actions .btn-secondary:hover {
+    background: hsla(0, 0%, 100%, 0.18);
+    border-color: hsla(0, 0%, 100%, 0.45);
   }
 </style>

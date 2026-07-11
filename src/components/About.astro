@@ -4,29 +4,50 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-intro">
-        <h2 class="section-title">An open codebase and incubator for student developers</h2>
+        <h2 class="section-title">
+          An open codebase and incubator for student developers
+        </h2>
         <p class="about-desc">
-          We build tools that make campus enlistment, navigation, and administrative simulator processes smoother. Each of our tools is entirely open source, client-side, and designed to respect student privacy.
+          We are an independent developer collective building lightweight,
+          privacy-first tools for the UPLB community, while mentoring the next
+          generation of engineers and designers.
         </p>
         <p class="about-desc">
-          uplb.tools also functions as a structured training sandbox. Student contributors collaborate via GitHub pull requests, learning software engineering fundamentals, design workflows, and release cycles.
+          We build tools that make campus enlistment, navigation, and
+          administrative simulator processes smoother. Each of our tools is
+          entirely open source, client-side, and designed to respect student
+          privacy.
+        </p>
+        <p class="about-desc">
+          uplb.tools also functions as a structured training sandbox. Student
+          contributors collaborate via GitHub pull requests, learning software
+          engineering fundamentals, design workflows, and release cycles.
         </p>
       </div>
-      
+
       <div class="about-principles">
-        <div class="principle-item">
-          <h3>01 / Utility Driven</h3>
-          <p>We build to solve specific friction points in registration, schedule planning, and grading trackers.</p>
+        <div class="principle-item card">
+          <h3>01 / Utility driven</h3>
+          <p>
+            We build to solve specific friction points in registration, schedule
+            planning, and grading trackers.
+          </p>
         </div>
-        
-        <div class="principle-item">
-          <h3>02 / Educational Sandbox</h3>
-          <p>We bridge the gap between academic theory and real-world development cycles using peer code reviews.</p>
+
+        <div class="principle-item card">
+          <h3>02 / Educational sandbox</h3>
+          <p>
+            We bridge the gap between academic theory and real-world development
+            cycles using peer code reviews.
+          </p>
         </div>
-        
-        <div class="principle-item">
-          <h3>03 / Zero Tracking</h3>
-          <p>No analytics engines, zero student tracking scripts, and no server-side databases.</p>
+
+        <div class="principle-item card">
+          <h3>03 / Zero tracking</h3>
+          <p>
+            No analytics engines, zero student tracking scripts, and no
+            server-side databases.
+          </p>
         </div>
       </div>
     </div>
@@ -36,52 +57,45 @@
 <style>
   .about-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
-    align-items: flex-start;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.5rem;
+    align-items: start;
   }
-  
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
-    line-height: 1.25;
-  }
-  
+
   .about-desc {
-    font-size: 0.925rem;
-    line-height: 1.6;
-    color: var(--text-zinc-400);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text-muted);
     margin-bottom: 1rem;
   }
-  
+
   .about-principles {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
-  
+
   .principle-item {
-    border-left: 2px solid var(--border-zinc);
-    padding-left: 1.25rem;
+    padding: 1.25rem 1.35rem;
+    border-left: 3px solid var(--brand-maroon);
   }
-  
+
   .principle-item h3 {
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-zinc-50);
-    margin-bottom: 0.25rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
   }
-  
+
   .principle-item p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-zinc-400);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin: 0;
   }
-  
+
   @media (max-width: 768px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
     }
   }
 </style>

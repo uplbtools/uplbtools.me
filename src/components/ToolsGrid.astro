@@ -1,0 +1,172 @@
+---
+import { tools } from "../data/tools";
+---
+<section id="tools" class="tools-section">
+  <div class="container">
+    <div class="tools-header">
+      <h2 class="section-title">Campus tools</h2>
+      <p class="section-subtitle">
+        Open-source utilities for UPLB students. Pick a tool and go.
+      </p>
+    </div>
+
+    <div class="tools-grid">
+      {
+        tools.map((tool) => (
+          <article class="tool-card card">
+            <a
+              href={tool.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="tool-card__preview"
+            >
+              <img
+                src={tool.screenshot}
+                alt={tool.screenshotAlt}
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+            </a>
+            <div class="tool-card__body">
+              <div class="tool-card__tags">
+                {tool.tags.map((tag) => (
+                  <span class="badge">{tag}</span>
+                ))}
+                <span class={`badge badge-${tool.status === "live" ? "green" : "maroon"}`}>
+                  {tool.statusLabel}
+                </span>
+              </div>
+              <h3 class="tool-card__title">
+                <a href={tool.href} target="_blank" rel="noopener noreferrer">
+                  {tool.name}
+                </a>
+              </h3>
+              <p class="tool-card__platform">{tool.platform}</p>
+              <p class="tool-card__desc">{tool.description}</p>
+              <div class="tool-card__actions">
+                <a
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary btn-sm"
+                >
+                  {tool.actionLabel}
+                </a>
+                {
+                  tool.githubHref ? (
+                    <a
+                      href={tool.githubHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm"
+                    >
+                      GitHub
+                    </a>
+                  ) : null
+                }
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .tools-section {
+    padding: 1.25rem 0 4rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .tools-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .tool-card__preview {
+    display: block;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-panel);
+    overflow: hidden;
+  }
+
+  .tool-card__preview img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  .tool-card:hover .tool-card__preview img {
+    transform: scale(1.02);
+  }
+
+  .tool-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .tool-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tool-card__title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .tool-card__title a:hover {
+    color: var(--brand-maroon);
+  }
+
+  .tool-card__platform {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .tool-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    flex: 1;
+    margin: 0;
+  }
+
+  .tool-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
