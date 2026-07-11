@@ -19,7 +19,8 @@ const quickLinks = [
   <div class="container hero-container">
     <div class="hero-copy">
       <h1 id="hero-title" class="hero-title">
-        Useful utilities built for UP Los Baños
+        Useful utilities built for{" "}
+        <span class="hero-title__place">UP Los Baños</span>
       </h1>
       <p class="hero-description">
         Lightweight, privacy-first open-source tools for the UPLB community.
@@ -95,6 +96,11 @@ const quickLinks = [
     line-height: 1.12;
     margin-bottom: 0.85rem;
     color: var(--text-on-maroon);
+    text-wrap: balance;
+  }
+
+  .hero-title__place {
+    white-space: nowrap;
   }
 
   .hero-description {
