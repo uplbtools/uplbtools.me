@@ -1,2 +1,5 @@
+# Bundled for OG image generation (fontsource / OFL).
 *.ttf
-*.otf
+!Raleway-Bold.ttf
+!Inter-Regular.ttf
+!Inter-Medium.ttf
