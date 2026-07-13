@@ -16,6 +16,19 @@ export type ToolEntry = {
 
 export const tools: ToolEntry[] = [
   {
+    id: "kubo",
+    name: "Kubo",
+    description:
+      "A student housing platform that helps students find trusted places to stay and gives dorm owners the tools to reach more students, manage availability, and keep their rooms occupied.",
+    href: "https://kubo.community",
+    actionLabel: "Visit website",
+    status: "active",
+    statusLabel: "Active",
+    tags: ["Housing"],
+    screenshot: "/kubo-screenshot.png",
+    screenshotAlt: "Kubo student housing map showing dorm listings around UPLB",
+  },
+  {
     id: "room-tba",
     name: "Room TBA",
     description:
