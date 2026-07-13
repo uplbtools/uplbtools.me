@@ -20,7 +20,7 @@ export const tools: ToolEntry[] = [
     name: "Kubo",
     description:
       "A student housing platform that helps students find trusted places to stay and gives dorm owners the tools to reach more students, manage availability, and keep their rooms occupied.",
-    href: "https://kubo.community",
+    href: "https://www.facebook.com/findkubo/",
     actionLabel: "Visit website",
     status: "active",
     statusLabel: "Active",
