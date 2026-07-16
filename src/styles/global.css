@@ -212,6 +212,7 @@ input:focus-visible {
 }
 
 .btn-sm {
+  min-height: 2.75rem;
   padding: 0.4rem 0.8rem;
   font-size: 0.8125rem;
 }
