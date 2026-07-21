@@ -47,6 +47,20 @@ import OpensInNewTab from "./OpensInNewTab.astro";
                   <OpensInNewTab />
                 </a>
                 {
+                  tool.facebookHref ? (
+                    <a
+                      href={tool.facebookHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm"
+                      aria-label={`${tool.name} on Facebook`}
+                    >
+                      Facebook
+                      <OpensInNewTab />
+                    </a>
+                  ) : null
+                }
+                {
                   tool.githubHref ? (
                     <a
                       href={tool.githubHref}
