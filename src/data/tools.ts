@@ -5,6 +5,7 @@ export type ToolEntry = {
   name: string;
   description: string;
   href: string;
+  facebookHref?: string;
   githubHref?: string;
   actionLabel: string;
   status: ToolStatus;
@@ -20,7 +21,8 @@ export const tools: ToolEntry[] = [
     name: "Kubo",
     description:
       "A student housing platform that helps students find trusted places to stay and gives dorm owners the tools to reach more students, manage availability, and keep their rooms occupied.",
-    href: "https://www.facebook.com/findkubo/",
+    href: "https://kubo.community",
+    facebookHref: "https://www.facebook.com/findkubo/",
     actionLabel: "Visit website",
     status: "active",
     statusLabel: "Active",
@@ -67,7 +69,8 @@ export const tools: ToolEntry[] = [
     statusLabel: "Active",
     tags: ["Academics"],
     screenshot: "/gwa-calculator-screenshot.png",
-    screenshotAlt: "UP GWA Calculator grade tracking dashboard showing subjects, GWA, and Latin honors status",
+    screenshotAlt:
+      "UP GWA Calculator grade tracking dashboard showing subjects, GWA, and Latin honors status",
   },
   {
     id: "uplb-trail",
@@ -80,6 +83,7 @@ export const tools: ToolEntry[] = [
     statusLabel: "Active",
     tags: ["Directory"],
     screenshot: "/trail-screenshot.png",
-    screenshotAlt: "UPLB TRAIL search engine page showing category tags and directory search results",
+    screenshotAlt:
+      "UPLB TRAIL search engine page showing category tags and directory search results",
   },
 ];
