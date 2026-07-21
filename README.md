@@ -1,6 +1,6 @@
-# uplbtools.me
+# uplb.tools
 
-Org landing site for [UPLB Tools](https://uplbtools.me): open-source utilities for the UP Los Baños community.
+Org landing site for [UPLB Tools](https://uplb.tools): Useful utilities for the UP Los Baños community.
 
 ## Stack
 
