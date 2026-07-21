@@ -56,4 +56,30 @@ export const tools: ToolEntry[] = [
     screenshot: "/gradesim-screenshot.png",
     screenshotAlt: "Elbi GradeSim AMIS extension",
   },
+  {
+    id: "gwa-calculator",
+    name: "UP GWA Calculator",
+    description:
+      "Easily track your semester grades and check your Latin honors eligibility with this sleek, interactive tool built specifically for UP students.",
+    href: "https://up-gwa.vercel.app",
+    actionLabel: "Visit website",
+    status: "active",
+    statusLabel: "Active",
+    tags: ["Academics"],
+    screenshot: "/gwa-calculator-screenshot.png",
+    screenshotAlt: "UP GWA Calculator grade tracking dashboard showing subjects, GWA, and Latin honors status",
+  },
+  {
+    id: "uplb-trail",
+    name: "UPLB TRAIL",
+    description:
+      "Navigate the university's web ecosystem with a quick search engine that connects you to hundreds of categorized UPLB websites, resources, and organizations.",
+    href: "https://uplb-trail.vercel.app",
+    actionLabel: "Visit website",
+    status: "active",
+    statusLabel: "Active",
+    tags: ["Directory"],
+    screenshot: "/trail-screenshot.png",
+    screenshotAlt: "UPLB TRAIL search engine page showing category tags and directory search results",
+  },
 ];
